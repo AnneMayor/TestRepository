@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="150.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.exam17.RootController">
+   <children>
+      <CheckBox fx:id="cb1" layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleCheckAction" text="안경" />
+      <CheckBox fx:id="cb2" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleCheckAction" text="모자" />
+     
+     
+      <ImageView fx:id="checkImageView" fitHeight="150.0" fitWidth="100.0" layoutX="76.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/geek-hair.gif" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnClose" layoutX="163.0" layoutY="128.0" mnemonicParsing="false" text="닫기">
+          <graphic>
+              <ImageView>
+                 <image>
+                     <Image url="@images/exit.png" />
+                 </image>
+              </ImageView>
+          </graphic>
+      </Button>
+       <Separator layoutX="201.0" layoutY="12.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="6.0" />
+       <RadioButton fx:id="rb1" userData="BubbleChart" layoutX="210.0" layoutY="28.0" mnemonicParsing="false" selected="true" text="BubbleChart">
+         <toggleGroup>
+            <ToggleGroup fx:id="rbGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rb2" userData="BarChart" layoutX="210.0" layoutY="54.0" mnemonicParsing="false" selected="true" text="BarChart">
+      </RadioButton>
+      <ImageView fx:id="radioImageView" fitHeight="150.0" fitWidth="100.0" layoutX="303.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/BubbleChart.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

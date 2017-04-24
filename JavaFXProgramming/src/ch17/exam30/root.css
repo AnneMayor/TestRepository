@@ -1,0 +1,14 @@
+.txtInput:focused {
+    -fx-border-color: skyblue;
+    -fx-background-color: #ffff00;
+}
+
+#btn1:hover {
+    -fx-border-color: skyblue;
+    -fx-background-color: #ffff00;
+}
+
+#btn1:pressed {
+    -fx-border-color: skyblue;
+    -fx-background-color: #00ffff;
+}

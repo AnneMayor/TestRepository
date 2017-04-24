@@ -1,0 +1,16 @@
+AnchorPane {
+    -fx-alignment: CENTER;
+}
+
+Label{
+   -fx-padding: 10;
+   
+}
+#lbl1 {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffff00;
+}
+.class1 {
+    -fx-background-color: #0000ff;
+    -fx-text-fill: #ffffff;
+}

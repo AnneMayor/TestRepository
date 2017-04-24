@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox alignment="CENTER" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitWidth="500.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/javafx.jpg" />
+         </image>
+      </ImageView>
+      <HBox alignment="BASELINE_LEFT" prefHeight="15.0" prefWidth="100.0" spacing="20.0">
+         <children>
+            <Button alignment="BASELINE_CENTER" mnemonicParsing="false" text="Button" textAlignment="CENTER" />
+            <Button alignment="BASELINE_CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Button" textAlignment="CENTER" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+    <children>
+      <ImageView fitWidth="500.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/javafx.jpg" />
+         </image>
+      </ImageView>
+      <HBox alignment="BASELINE_LEFT" prefHeight="15.0" prefWidth="100.0" spacing="20.0">
+         <children>
+            <Button alignment="BASELINE_CENTER" mnemonicParsing="false" text="Button" textAlignment="CENTER" />
+            <Button alignment="BASELINE_CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Button" textAlignment="CENTER" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+    <children>
+      <ImageView fitWidth="500.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/javafx.jpg" />
+         </image>
+      </ImageView>
+      <HBox alignment="BASELINE_LEFT" prefHeight="15.0" prefWidth="100.0" spacing="20.0">
+         <children>
+            <Button alignment="BASELINE_CENTER" mnemonicParsing="false" text="Button" textAlignment="CENTER" />
+            <Button alignment="BASELINE_CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Button" textAlignment="CENTER" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
