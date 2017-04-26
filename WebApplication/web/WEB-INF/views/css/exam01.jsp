@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>JSP Page</title>
+    <title>CSS</title>
   </head>
   <body>
     <h1>Block태그 및 CSS</h1>

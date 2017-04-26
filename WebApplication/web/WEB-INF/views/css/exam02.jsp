@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>JSP Page</title>
+    <title>CSS</title>
     <style type="text/css">
       /*태그 선택자(selector)*/
       div {
