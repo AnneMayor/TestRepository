@@ -1,9 +1,0 @@
-#root {
-    -fx-padding: 15;
-}
-
-#welcome-text {
-    -fx-font-size: 35;
-    -fx-font-family: "Arial Black";
-    -fx-text-fill: linear-gradient(to bottom, blue, skyblue)
-}

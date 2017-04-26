@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homedisplay.CallcontrolController">
+   <top>
+      <TextArea fx:id="txtNumber" prefHeight="80.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <TilePane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btn1" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="1" />
+            <Button fx:id="btn2" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="2" />
+            <Button fx:id="btn3" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="3" />
+            <Button fx:id="btn4" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="4" />
+            <Button fx:id="btn5" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="5" />
+            <Button fx:id="btn6" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="6" />
+            <Button fx:id="btn7" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="7" />
+            <Button fx:id="btn8" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="8" />
+            <Button fx:id="btn9" alignment="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="9" />
+            <Button fx:id="btnCall" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="전화걸기" />
+            <Button fx:id="btn0" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="0" />
+            <Button fx:id="btnCancel" mnemonicParsing="false" prefHeight="80.0" prefWidth="133.0" text="취소" />
+         </children>
+      </TilePane>
+   </center>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnGuardian" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="경비실" />
+            <Button fx:id="btnApt" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="세대통화" />
+            <Button fx:id="btnPhone" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="일반통화" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="15.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+</BorderPane>
