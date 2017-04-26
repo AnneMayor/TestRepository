@@ -36,4 +36,19 @@ public class HomeController {
   public String javascriptExam01() { // 이 메소드 이름은 아무거나 상관없음. 잘 알아두자!이런게 내 코딩할 때 무쟈게 중요하게 작용한다...
     return "javascript/exam01";
   }
+
+  @RequestMapping("/javascript/exam02")
+  public String javascriptExam02() { // 이 메소드 이름은 아무거나 상관없음. 잘 알아두자!이런게 내 코딩할 때 무쟈게 중요하게 작용한다...
+    return "javascript/exam02";
+  }
+
+  @RequestMapping("/javascript/exam03")
+  public String javascriptExam03() { // 이 메소드 이름은 아무거나 상관없음. 잘 알아두자!이런게 내 코딩할 때 무쟈게 중요하게 작용한다...
+    return "javascript/exam03";
+  }
+
+  @RequestMapping("/javascript/exam04")
+  public String javascriptExam04() { // 이 메소드 이름은 아무거나 상관없음. 잘 알아두자!이런게 내 코딩할 때 무쟈게 중요하게 작용한다...
+    return "javascript/exam04";
+  }
 }
