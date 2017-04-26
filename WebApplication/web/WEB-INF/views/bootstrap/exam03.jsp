@@ -26,7 +26,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-8" style="padding: 0px">
+        <div class="col-md-8" style="padding: 0px; padding-right: 10px">
           <div class="row">
             <div class="col-md-4" style="padding: 0px"><div style="height: 100px; background-color: skyblue;"></div></div>
             <div class="col-md-4" style="padding: 0px"><div style="height: 100px; background-color: skyblue;"></div></div>
@@ -45,7 +45,7 @@
           </div>
         </div>
 
-        <div class="col-md-4" style="padding: 0px">
+        <div class="col-md-4" style="padding: 0px; padding-left: 10px">
           <div class="row">
             <div class="col-md-12" style="padding: 0px"><div style="height: 200px; background-color: skyblue;"></div></div>
             
