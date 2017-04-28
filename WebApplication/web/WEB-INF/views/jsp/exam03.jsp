@@ -2,13 +2,12 @@
 [지시자]
 1. 작성: <%@ ... %>
 2. 종류
-<%@page ... %> : JSP가 무엇을 만들어내느냐? (import시킬 적에도 page지시자 사용!)
+<%@page ... %> : 
 <%@include ... %> : 
-<%@taglib ... %> : 
+<%@taglib ... %> : JSP에서 추가적으로 사용할 수 있는 커스텀 태그 로딩
 --%>
-
-<%@page import="java.util.Calendar, java.io.*, java.net.*"%>
 <%@page contentType="text/html; charset=UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,13 +19,17 @@
     <script src="/WebApplication/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
   </head>
   <body>
-    <h1>java.util.Calendar</h1>
-    <%
-      Calendar now = Calendar.getInstance();
-      int year = now.get(Calendar.YEAR);
-      int month = now.get(Calendar.MONTH) + 1;
-      int day = now.get(Calendar.DAY_OF_MONTH);
-    %>
-    <%=year%>년 <%=month%>월 <%=day%>일
+    <h4>JSTL(Java Standard Tag Library)</h4>
+    <% for (int i = 1; i <= 5; i++) {%>
+    <img src="/WebApplication/resources/image/member0<%=i%>.png" width="50px" height="50px" />
+    <%}%>
+
+    <br/>
+    <br/>
+    <c:forEach begin="1" end="5" step="1" varStatus="status">
+      <img src="/WebApplication/resources/image/member0${status.count}.png" width="50px" height="50px" />
+    </c:forEach>
+      
+      
   </body>
 </html>

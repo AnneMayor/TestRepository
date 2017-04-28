@@ -1,14 +1,11 @@
 <%--
-[지시자]
-1. 작성: <%@ ... %>
-2. 종류
-<%@page ... %> : JSP가 무엇을 만들어내느냐? (import시킬 적에도 page지시자 사용!)
-<%@include ... %> : 
-<%@taglib ... %> : 
+[표현식]
+1. 작성 : ${ ... } <- 이걸 사용하려면 request에 Map에 객체가 저장되어 있어야 한다!
+2. 용도: 값 또는 객체의 Getter를 이용해서 리턴값을 얻고 출력
 --%>
-
-<%@page import="java.util.Calendar, java.io.*, java.net.*"%>
 <%@page contentType="text/html; charset=UTF-8"%>
+<%@page import="com.mycompany.myapp.dto.*"%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,13 +17,15 @@
     <script src="/WebApplication/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
   </head>
   <body>
-    <h1>java.util.Calendar</h1>
-    <%
-      Calendar now = Calendar.getInstance();
-      int year = now.get(Calendar.YEAR);
-      int month = now.get(Calendar.MONTH) + 1;
-      int day = now.get(Calendar.DAY_OF_MONTH);
-    %>
-    <%=year%>년 <%=month%>월 <%=day%>일
+    이름: ${name3}<br/>
+    이름: ${member3.name}<br/>
+    나이: ${member3.age}<br/>
+    
+    <h3>Board</h3>
+    No: ${board.bno}<br/>
+    Name: ${board.bwriter}<br/>
+    Date: ${board.bdate}<br/>
+    Content: ${board.bcontent}<br/>
+      
   </body>
 </html>
