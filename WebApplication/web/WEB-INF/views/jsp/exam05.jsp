@@ -5,6 +5,7 @@
 --%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page import="com.mycompany.myapp.dto.*"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -21,11 +22,42 @@
     이름: ${member3.name}<br/>
     나이: ${member3.age}<br/>
     
+    <hr/>
     <h3>Board</h3>
     No: ${board.bno}<br/>
     Name: ${board.bwriter}<br/>
     Date: ${board.bdate}<br/>
     Content: ${board.bcontent}<br/>
-      
+    <hr/>
+    
+    <h3>New Board</h3>
+    <table class="table table-bordered">
+      <tr class="success">
+        <td>
+          번호
+        </td>
+        <td>
+          제목
+        </td>
+        <td>
+          내용
+        </td>
+        <td>
+          글쓴이
+        </td>
+        <td>
+          날짜
+        </td>
+      </tr>
+      <c:forEach var="b" items="${list}">
+        <tr>
+          <td>${b.bno}</td>
+        <td>${b.btitle}</td>
+        <td>${b.bcontent}</td>
+        <td>${b.bwriter}</td>
+        <td>${b.bdate}</td>
+        </tr>
+      </c:forEach>
+    </table>
   </body>
 </html>
