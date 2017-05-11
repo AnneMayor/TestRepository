@@ -45,6 +45,5 @@
       <button onclick="handleBtn3()">Image(class="class1") Change</button><br/>
     </div>
 
-
   </body>
 </html>

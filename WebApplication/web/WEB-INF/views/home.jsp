@@ -49,6 +49,14 @@
       %>
       <a href="bootstrap/<%=exam%>" class="btn btn-primary"><%=exam%></a>
       <%}%>
+      
+      <h4>jsp tag</h4>
+    <%for (int i = 1; i <= 5; i++) {
+      String exam = "exam";
+      exam += "0" + i;
+      %>
+      <a href="jsp/<%=exam%>" class="btn btn-primary"><%=exam%></a>
+      <%}%>
   </body>
 
 </html>
