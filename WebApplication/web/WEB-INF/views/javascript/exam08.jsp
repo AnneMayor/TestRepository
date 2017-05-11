@@ -16,6 +16,7 @@
         "company": "현대",
         "speed": 0,
 
+        // 메소드
         "start": function() {
           console.log("시동을 겁니다");
         }, 
