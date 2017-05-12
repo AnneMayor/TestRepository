@@ -20,5 +20,5 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         class="org.springframework.web.servlet.view.InternalResourceViewResolver"
         p:prefix="/WEB-INF/views/"
         p:suffix=".jsp" />
-
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 </beans>
