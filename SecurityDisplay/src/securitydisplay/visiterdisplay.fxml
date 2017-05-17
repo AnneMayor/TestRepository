@@ -7,8 +7,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="securitydisplay.VisiterdisplayController">
-  <stylesheets>
-    <URL value="@visiterdisplay.css"/>
-  </stylesheets>
-</AnchorPane>
+<TilePane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button mnemonicParsing="false" text="택배" />
+      <Button mnemonicParsing="false" text="주민" />
+      <Button mnemonicParsing="false" text="지인" />
+      <Button mnemonicParsing="false" text="기타" />
+   </children>
+</TilePane>

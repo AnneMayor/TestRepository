@@ -8,35 +8,57 @@ import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
 public class RGBLed {
+
   private GpioPinDigitalOutput redPin;
   private GpioPinDigitalOutput greenPin;
   private GpioPinDigitalOutput bluePin;
-  
+
   public RGBLed(Pin redPinNo, Pin greenPinNo, Pin bluePinNo) {
     GpioController gpioController = GpioFactory.getInstance();
-    
+
     redPin = gpioController.provisionDigitalOutputPin(redPinNo, PinState.HIGH);
     greenPin = gpioController.provisionDigitalOutputPin(greenPinNo, PinState.HIGH);
     bluePin = gpioController.provisionDigitalOutputPin(bluePinNo, PinState.HIGH);
-    
+
     redPin.setShutdownOptions(true, PinState.LOW);
     greenPin.setShutdownOptions(true, PinState.LOW);
     bluePin.setShutdownOptions(true, PinState.LOW);
-    
+
   }
-  
+
   public static void main(String[] args) throws InterruptedException {
-    RGBLed rgb = new RGBLed(RaspiPin.GPIO_27, RaspiPin.GPIO_28, RaspiPin.GPIO_29);
-    while(true) {
-      rgb.red();
+    RGBLed test = new RGBLed(RaspiPin.GPIO_27, RaspiPin.GPIO_28, RaspiPin.GPIO_29);
+    while (true) {
+      test.rgb(true, false, false);
       Thread.sleep(100);
-      rgb.green();
+      test.rgb(false, true, false);
       Thread.sleep(100);
-      rgb.blue();
+      test.rgb(false, false, true);
       Thread.sleep(100);
     }
-   }
-  
+  }
+
+  public void rgb(Boolean red, Boolean green, Boolean blue) {
+    if (red) {
+      redPin.low();
+    } else {
+      redPin.high();
+    }
+
+    if (green) {
+      greenPin.low();
+    } else {
+      greenPin.high();
+    }
+
+    if (blue) {
+      bluePin.low();
+    } else {
+      bluePin.high();
+    }
+  }
+
+  /*
   public void red() {
     redPin.low();
     greenPin.high();
@@ -53,5 +75,29 @@ public class RGBLed {
     redPin.high();
     greenPin.high();
     bluePin.low();
+  }
+   */
+  public void redOnOff(Boolean state) {
+    if (state == true) {
+      redPin.low();
+    } else {
+      redPin.high();
+    }
+  }
+
+  public void greenOnOff(Boolean state) {
+    if (state == true) {
+      greenPin.low();
+    } else {
+      greenPin.high();
+    }
+  }
+
+  public void blueOnOff(Boolean state) {
+    if (state == true) {
+      bluePin.low();
+    } else {
+      bluePin.high();
+    }
   }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class Exam10DIController {
   @Autowired
-  Exam10Service exam10Service;
+  private Exam10Service exam10Service;
   
   @RequestMapping("/di/exam01") 
   public String exam01() {
@@ -23,4 +23,4 @@ public class Exam10DIController {
     exam10Service.login();
     return "di/exam01";
   }
-} 
+}
