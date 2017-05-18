@@ -11,29 +11,30 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import java.io.IOException;
 
 public class Button {
+
   // Field
   private GpioPinDigitalInput gpioPinDigitalInput;
-  
+
   // Constructor
   public Button(Pin buttonPinNo) {
     GpioController gpioController = GpioFactory.getInstance();
     gpioPinDigitalInput = gpioController.provisionDigitalInputPin(buttonPinNo);
     gpioPinDigitalInput.setShutdownOptions(true);
   }
-  
+
   public void setGpioPinListenerDigital(GpioPinListenerDigital listener) {
     gpioPinDigitalInput.addListener(listener);
   }
-  
+
   // Method
-  public static void main(String...args) throws IOException {
+  public static void main(String... args) throws IOException {
     Button button = new Button(RaspiPin.GPIO_00);
     button.setGpioPinListenerDigital(new GpioPinListenerDigital() {
       @Override
       public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-        if(event.getState() == PinState.HIGH) {
+        if (event.getState() == PinState.HIGH) {
           System.out.println("High");
-       } else {
+        } else {
           System.out.println("Low");
         }
       }
