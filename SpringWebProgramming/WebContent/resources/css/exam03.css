@@ -1,0 +1,27 @@
+div {
+  background-color: red; 
+  border: 1px solid black; 
+  height: 100px;
+}
+
+.skyblue{
+  background-color: skyblue; 
+}
+/*ID 선택자*/
+#gold {
+  background-color: gold;
+}
+.btn {
+  background-color: gray;
+  border: 1px solid black;
+  height: 70px;
+  padding: 5px;
+}
+.success {
+  background-color: forestgreen;
+  color: white;
+}
+.warning {
+  background-color: red;
+  color: white;
+}

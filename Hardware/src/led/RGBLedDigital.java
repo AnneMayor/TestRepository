@@ -7,13 +7,13 @@ import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
-public class RGBLed {
+public class RGBLedDigital {
 
   private GpioPinDigitalOutput redPin;
   private GpioPinDigitalOutput greenPin;
   private GpioPinDigitalOutput bluePin;
 
-  public RGBLed(Pin redPinNo, Pin greenPinNo, Pin bluePinNo) {
+  public RGBLedDigital(Pin redPinNo, Pin greenPinNo, Pin bluePinNo) {
     GpioController gpioController = GpioFactory.getInstance();
 
     redPin = gpioController.provisionDigitalOutputPin(redPinNo, PinState.HIGH);
@@ -27,7 +27,7 @@ public class RGBLed {
   }
 
   public static void main(String[] args) throws InterruptedException {
-    RGBLed test = new RGBLed(RaspiPin.GPIO_27, RaspiPin.GPIO_28, RaspiPin.GPIO_29);
+    RGBLedDigital test = new RGBLedDigital(RaspiPin.GPIO_27, RaspiPin.GPIO_28, RaspiPin.GPIO_29);
     while (true) {
       test.rgb(true, false, false);
       Thread.sleep(100);
