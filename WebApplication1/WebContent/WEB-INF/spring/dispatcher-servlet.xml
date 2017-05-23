@@ -10,8 +10,8 @@
 	<mvc:annotation-driven />
 
 	<!-- Controller가 필요없는 정적 리소스 폴더 설정 -->
-	<mvc:resources mapping="/resources/**" location="/resources/"/>
-	
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
 	<!-- 어떤 패키지부터 @어노테이션을 찾아서 쓸 것인지 -->
 	<context:component-scan base-package="com.mycompany.myapp"></context:component-scan>
 
@@ -23,4 +23,15 @@
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
+	<bean id="exam10Dao2" class="com.mycompany.myapp.dao.Exam10Dao2Impl" />
+	<!-- <bean id="exam10Service4" class="com.mycompany.myapp.service.Exam10Service4Impl" 
+		p:exam10Dao-ref="exam10Dao2"> </bean> -->
+	<bean id="exam10Service4" class="com.mycompany.myapp.service.Exam10Service4Impl">
+		<property name="exam10Dao" ref="exam10Dao2" />
+	</bean>
+
+	<!-- 생성자 주입 -->
+	<bean id="exam10Service5" class="com.mycompany.myapp.service.Exam10Service5Impl">
+		<constructor-arg ref="exam10Dao2"/>
+	</bean>
 </beans>
