@@ -11,6 +11,7 @@ public class Exam10Service3Impl implements Exam10Service3{
 	private Exam10Dao1 exam10Dao1;
 	
 	// 생성자 주입
+	// 만약 아래 어노테이션 붙이지 않는다면 기본생성자가 없기에 이 클래스 객체가 생성되지 못하여 Exception 발생
 	@Autowired
 	public Exam10Service3Impl(Exam10Dao1 exam10Dao1){
 		this.exam10Dao1 = exam10Dao1;

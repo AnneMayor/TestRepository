@@ -77,10 +77,10 @@ public class Exam09FormController {
 		String encodingFileName;
 		if(userAgent.contains("MSIE") || userAgent.contains("Trident") || userAgent.contains("Edge")) {
 			encodingFileName = URLEncoder.encode(fileName, "UTF-8");
-			System.out.println(encodingFileName);
+			//System.out.println(encodingFileName);
 		} else {
 			encodingFileName = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
-			System.out.println(encodingFileName);					
+			//System.out.println(encodingFileName);					
 		}
 		
 		response.addHeader("Content-Disposition", "attachment; filename=\"" + encodingFileName + "\"");

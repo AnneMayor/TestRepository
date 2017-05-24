@@ -7,7 +7,7 @@
 		</Console>
 	</Appenders>
 	<Loggers>
-	<Logger name="com.mycompany.myapp.controller" level="INFO" />
+	<Logger name="com.mycompany.myapp" level="INFO" />
 	<!-- <ApenderRef ref="Console" /> -->
 		<Root level="ERROR">
 			<AppenderRef ref="Console" />

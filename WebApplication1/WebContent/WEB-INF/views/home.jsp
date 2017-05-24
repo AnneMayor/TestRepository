@@ -91,5 +91,9 @@
 			<h4>의존성 주입</h4>
 			<a href="di/exam01" class="btn btn-primary">회원 가입</a>
 			<a href="di/exam02" class="btn btn-primary">로그인</a>
+			
+			<h4>Redirect</h4>
+			<a href="redirect/write" class="btn btn-warning">게시물 작성</a>
+			<a href="redirect/list" class="btn btn-primary">게시물 목록</a>
 	 </body>
 </html>
