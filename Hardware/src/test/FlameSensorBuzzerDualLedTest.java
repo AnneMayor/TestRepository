@@ -17,6 +17,7 @@ public class FlameSensorBuzzerDualLedTest {
     DualColorLed color = new DualColorLed(RaspiPin.GPIO_02, RaspiPin.GPIO_03);
     FlameSensor flame = new FlameSensor(pcf8591, RaspiPin.GPIO_00);
     
+    
     color.green();
     flame.setGpioPinListenerDigital(new GpioPinListenerDigital() {
       @Override
