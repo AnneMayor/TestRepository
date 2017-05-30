@@ -1,0 +1,85 @@
+!SESSION 2017-05-30 10:23:48.282 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface.text 2 0 2017-05-30 10:24:10.597
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-05-30 10:24:10.599
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-05-30 10:24:12.677
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:24:14.534
+!MESSAGE properties loading for project 'RemoteSystemsTempFiles'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:24:14.668
+!MESSAGE properties loading for project 'RemoteSystemsTempFiles'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:07.275
+!MESSAGE properties loading for project 'JavaApplication'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:07.311
+!MESSAGE properties loading for project 'JavaApplication'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:17.322
+!MESSAGE properties removing for project 'JavaApplication'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:32.374
+!MESSAGE properties loading for project 'JavaProgramming'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:32.419
+!MESSAGE properties loading for project 'JavaProgramming'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:32.423
+!MESSAGE properties loading for project 'HW01'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:32.442
+!MESSAGE properties loading for project 'HW01'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:32.736
+!MESSAGE properties loading for project 'JavaProgramming'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:32.737
+!MESSAGE loading file 'database.properties'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:34.099
+!MESSAGE properties loading for project 'JavaProgramming'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 10:25:34.100
+!MESSAGE loading file 'database.properties'
+!SESSION 2017-05-30 11:17:53.630 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-05-30 11:18:03.069
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 11:18:04.846
+!MESSAGE properties loading for project 'HW01'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 11:18:04.847
+!MESSAGE properties loading for project 'JavaProgramming'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 11:18:04.849
+!MESSAGE loading file 'database.properties'
+
+!ENTRY jp.gr.java_conf.ussiy.app.propedit 1 0 2017-05-30 11:18:04.849
+!MESSAGE properties loading for project 'RemoteSystemsTempFiles'

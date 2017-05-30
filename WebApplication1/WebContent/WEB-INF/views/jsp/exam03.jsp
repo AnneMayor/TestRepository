@@ -26,7 +26,7 @@
 			<%}%><br/>
 			
 			<c:forEach begin="1" end="5" step="1" varStatus="status">
-				 <img src="<%=application.getContextPath()%>/resources/images/member0$(status.count).png" width="50px" height="50px">
+				 <img src="<%=application.getContextPath()%>/resources/images/member0${status.count}.png" width="50px" height="50px">
 			</c:forEach>
 	 </body>
 </html>

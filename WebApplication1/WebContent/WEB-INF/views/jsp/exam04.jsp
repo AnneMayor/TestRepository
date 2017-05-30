@@ -21,7 +21,7 @@
 				 이름: <%=name%>
 			</div>
 			<div>
-				 <%Member member = new Member("홍길동", 30);%>			 <%-- 그냥 변수 값을 출력하겠다--%>
+				 <%Exam07Member member = new Exam07Member("홍길동", 30);%>			 <%-- 그냥 변수 값을 출력하겠다--%>
 				 이름: <%=member.getName()%><br/>	
 				 나이: <%=member.getAge()%>
 			</div>
@@ -31,8 +31,8 @@
 				 이름: ${name}
 			</div>
 			<div>
-				 <%request.setAttribute("member", new Member("홍길동", 30));%>			<%--리퀘스트라는 객체에 키로 객체를 저장--%>
-				 이름: <%=((Member)request.getAttribute("member")).getName()%>					<%--멤버객체를 리턴하긴 하지만, 오브젝트 타입으로 리턴--%>
+				 <%request.setAttribute("member", new Exam07Member("홍길동", 30));%>			<%--리퀘스트라는 객체에 키로 객체를 저장--%>
+				 이름: <%=((Exam07Member)request.getAttribute("member")).getName()%>					<%--멤버객체를 리턴하긴 하지만, 오브젝트 타입으로 리턴--%>
 				 이름: ${member.name}<br/>													<%--필드를 호출하는 것이 아니라 게터를 호출하여 값을 얻음--%>
 				 나이: ${member.age}
 			</div>

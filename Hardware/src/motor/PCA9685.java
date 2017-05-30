@@ -112,21 +112,18 @@ public class PCA9685 {
     // 0도로 회전
     //pca9685.setDuration(PWM_00, 750);
     pca9685.setStep(PWM_00, 164);
-    pca9685.setDuration(PWM_01, 750);
+    //pca9685.setDuration(PWM_01, 750);
     // Thread를 줘야 돌아갈 시간을 줄 수 있어 돌아감.
     Thread.sleep(2000);
     pca9685.setStep(PWM_00, 358);
     //pca9685.setDuration(PWM_00, (750 + 2300) / 2);
-    pca9685.setDuration(PWM_01, (750 + 2300) / 2);
+    //pca9685.setDuration(PWM_01, (750 + 2300) / 2);
     Thread.sleep(2000);
     pca9685.setStep(PWM_00, 552);
     //pca9685.setDuration(PWM_00, 2300);
-    pca9685.setDuration(PWM_01, 2300);
+    //pca9685.setDuration(PWM_01, 2300);
     Thread.sleep(2000);
 
-    pca9685.setDuration(PWM_02, 750);
-    
-    
-    
+    //pca9685.setDuration(PWM_02, 750);
   }
 }
