@@ -30,7 +30,7 @@
 		</tr>
 		<c:forEach var="m" items="${list}">
 			<tr>
-				<td>${m.mname}</td>
+				<td><a href="exam07Detail?mid=${m.mid}">${m.mname}</a></td>
 				<td>${m.mid}</td>
 				<td>${m.mpassword}</td>
 				<td>${m.mage}</td>

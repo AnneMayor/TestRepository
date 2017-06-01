@@ -32,14 +32,15 @@
 		<c:forEach var="b" items="${list}">
 			<tr>
 				<td>${b.bno}</td>
-				<td>${b.btitle}</td>
+				<!-- 하나의 게시물을 찾아오기 위해서 GET방식으로 넘겨주기 -->
+				<td><a href="exam05Detail?bno=${b.bno}">${b.btitle}</a></td>
 				<td>${b.bhitcount}</td>
 				<td>${b.bwriter}</td>
 				<td>${b.bdate}</td>
 			</tr>
 		</c:forEach>
 	</table>
-	<div style="margin-top: 20px; width: 700px; text-align: center;">
+	<div style="margin-top: 10px; width: 700px; text-align: center;">
 		<a href="exam05?pageNo=1">[처음]</a>
 		<c:if test="${groupNo > 1 }">
 			<a href="exam05?pageNo=${startPageNo-1}">[이전]</a>
@@ -57,6 +58,10 @@
 		</c:if>
 
 		<a href="exam05?pageNo=${totalPageNo}">[맨끝]</a>
+	</div>
+
+	<div style="margin-top: 10px; width: 700px; text-align: right;">
+		<a href="exam02" class="btn btn-success">글쓰기</a>
 	</div>
 </body>
 </html>

@@ -9,6 +9,10 @@ public interface Exam12Dao {
 	public List<Exam12Board> boardSelectAll();
 	public List<Exam12Board> boardSelectPage(int pageNo, int rowsPerPage);
 	public int boardCountAll();
+	public Exam12Board boardSelectByBno(int bno);
+	public void boardUpdateBhitcount(int bno, int bhitcount);
+	public void boardUpdate(Exam12Board board);
+	public void boardDelete(int bno);
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
@@ -16,4 +20,7 @@ public interface Exam12Dao {
 	public List<Exam12Member> memberSelectAll();
 	public List<Exam12Member> memberSelectPage(int pageNo, int rowsPerPage);
 	public int memberCountAll();
+	public Exam12Member memberSelectByMid(String mid);
+	public void memberUpdate(Exam12Member member);
+	public void memberDelete(String mid);
 }

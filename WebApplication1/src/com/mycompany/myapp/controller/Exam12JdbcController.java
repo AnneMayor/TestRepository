@@ -64,7 +64,7 @@ public class Exam12JdbcController {
 		
 		service.boardWrite(board);
 		
-		return "redirect:/";
+		return "redirect:/jdbc/exam05";
 	}
 	
 	@RequestMapping(value = "/jdbc/exam03", method=RequestMethod.GET)
@@ -131,6 +131,13 @@ public class Exam12JdbcController {
 		return "jdbc/exam05";
 	}
 	
+	@RequestMapping("/jdbc/exam05Detail")
+	public String exam05Detail(int bno, Model model) {
+		Exam12Board board = service.getBoard(bno);
+		model.addAttribute("board", board);
+		return "jdbc/exam05Detail";
+	}
+	
 	@RequestMapping("/jdbc/exam06")
 	public String exam06(Model model) {
 		List<Exam12Member> list = service.memberListAll();
@@ -165,5 +172,74 @@ public class Exam12JdbcController {
 		model.addAttribute("pageNo", pageNo);
 		
 		return "jdbc/exam07";
+	}
+	
+	@RequestMapping("/jdbc/exam07Detail")
+	public String exam07Detail(String mid, Model model) {
+		Exam12Member member = service.getMember(mid);
+		model.addAttribute("member", member);
+		return "jdbc/exam07Detail";
+	}
+	
+	@RequestMapping("/jdbc/exam07CheckMpassword")
+	public String exam07CheckMpassword(String mid, String mpassword, Model model) {
+		String result = service.memberCheckMpassword(mid, mpassword);
+		model.addAttribute("result", result);
+		return "jdbc/exam07CheckMpassword";
+	}
+	
+	@RequestMapping(value="/jdbc/exam07Update", method=RequestMethod.GET)
+	public String exam07UpdateGet(String mid, Model model) {
+		Exam12Member member = service.getMember(mid);
+		model.addAttribute("member", member);
+		return "jdbc/exam07Update";
+	}
+	
+	@RequestMapping(value="/jdbc/exam07Update", method=RequestMethod.POST)
+	public String exam07UpdatePost(String mid, Exam12Member member) {
+		
+		
+		service.memberUpdate(member);
+		return "jdbc/exam07Update?mid=" + member.getMid();
+	}
+	
+	@RequestMapping("/jdbc/exam05CheckBpassword") 
+		public String exam05CheckBpassword(int bno, String bpassword, Model model) {
+			String result = service.boardCheckBpassword(bno, bpassword);
+			model.addAttribute("result", result);
+			return "jdbc/exam05CheckBpassword";
+		}
+	
+	@RequestMapping(value="/jdbc/exam05Update", method=RequestMethod.GET)
+	public String exam05UpdateGet(int bno, Model model) {
+		Exam12Board board = service.getBoard(bno);
+		model.addAttribute("board", board);
+		return "jdbc/exam05Update";
+	}
+	
+	@RequestMapping(value="/jdbc/exam05Update", method=RequestMethod.POST)
+	public String exam05UpdateGetPost(Exam12Board board) throws IllegalStateException, IOException {
+		// 첨부파일이 변경되었는지 검사
+		if(!board.getBattach().isEmpty()) {
+			board.setBoriginalfilename(board.getBattach().getOriginalFilename());
+			board.setBfilecontent(board.getBattach().getContentType());
+			
+			String realPath = servletContext.getRealPath("/WEB-INF/upload/");
+			String fileName = new Date().getTime() + "-" + board.getBoriginalfilename();
+			File file = new File(realPath + fileName);
+			board.getBattach().transferTo(file);
+			board.setBsavedfilename(fileName);
+		}
+		
+		// 게시물 수정 처리
+		service.boardUpdate(board);
+		
+		return "redirect:/jdbc/exam05Detail?bno=" + board.getBno();
+	}
+	
+	@RequestMapping("/jdbc/exam05Delete")
+	public String exam05Delete(int bno) {
+		service.boardDelete(bno);
+		return "redirect:/jdbc/exam05";
 	}
 }
