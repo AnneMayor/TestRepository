@@ -539,7 +539,7 @@ public class Exam12DaoImpl implements Exam12Dao {
 				member.setMsavedfilename(rs.getString("msavedfilename"));
 				member.setMfilecontent(rs.getString("mfilecontent"));
 			}
-			
+
 			rs.close();
 			pstm.close();
 
@@ -568,32 +568,32 @@ public class Exam12DaoImpl implements Exam12Dao {
 
 			String sql;
 			if (member.getMoriginalfilename() != null) {
-				sql = "update member set mid=?, mname=?, mpassword=?, mdate=sysdate, mage=?, maddress=?, memail=?, mtel=?, ";
-				sql += "moriginalfilename=?, msavedfilename=?, mfilecontent=?";
+				sql = "update member set mname=?, mpassword=?, mdate=sysdate, mage=?, maddress=?, memail=?, mtel=?, ";
+				sql += "moriginalfilename=?, msavedfilename=?, mfilecontent=? where mid=? ";
 			} else {
-				sql = "update member set mid=?, mname=?, mpassword=?, mdate=sysdate, mage=?, maddress=?, memail=?, mtel=?";
+				sql = "update member set mname=?, mpassword=?, mdate=sysdate, mage=?, maddress=?, memail=?, mtel=? where mid=? ";
 			}
 
 			PreparedStatement psmt = connection.prepareStatement(sql);
 			if (member.getMoriginalfilename() != null) {
-				psmt.setString(1, member.getMid());
-				psmt.setString(2, member.getMname());
-				psmt.setString(3, member.getMpassword());
-				psmt.setInt(4, member.getMage());
-				psmt.setString(5, member.getMaddress());
-				psmt.setString(6, member.getMemail());
-				psmt.setString(7, member.getMtel());
-				psmt.setString(8, member.getMoriginalfilename());
-				psmt.setString(9, member.getMsavedfilename());
-				psmt.setString(10, member.getMfilecontent());
+				psmt.setString(1, member.getMname());
+				psmt.setString(2, member.getMpassword());
+				psmt.setInt(3, member.getMage());
+				psmt.setString(4, member.getMaddress());
+				psmt.setString(5, member.getMemail());
+				psmt.setString(6, member.getMtel());
+				psmt.setString(7, member.getMoriginalfilename());
+				psmt.setString(8, member.getMsavedfilename());
+				psmt.setString(9, member.getMfilecontent());
+				psmt.setString(10, member.getMid());
 			} else {
-				psmt.setString(1, member.getMid());
-				psmt.setString(2, member.getMname());
-				psmt.setString(3, member.getMpassword());
-				psmt.setInt(4, member.getMage());
-				psmt.setString(5, member.getMaddress());
-				psmt.setString(6, member.getMemail());
-				psmt.setString(7, member.getMtel());
+				psmt.setString(1, member.getMname());
+				psmt.setString(2, member.getMpassword());
+				psmt.setInt(3, member.getMage());
+				psmt.setString(4, member.getMaddress());
+				psmt.setString(5, member.getMemail());
+				psmt.setString(6, member.getMtel());
+				psmt.setString(7, member.getMid());
 			}
 			psmt.executeUpdate();
 			psmt.close();
@@ -612,37 +612,62 @@ public class Exam12DaoImpl implements Exam12Dao {
 
 	@Override
 	public void memberDelete(String mid) {
+		Connection connection = null;
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			String conn = "jdbc:oracle:thin:@localhost:1521:orcl";
+			connection = DriverManager.getConnection(conn, "iotuser", "iot12345");
+
+			String sql = " delete from member where mid=? ";
+
+			PreparedStatement pstm1 = connection.prepareStatement(sql);
+			pstm1.setString(1, mid);
+			pstm1.executeUpdate();
+			pstm1.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	/*
-	 * public static void main(String... args) { Exam12DaoImpl test = new
-	 * Exam12DaoImpl(); // List<Exam12Board> list = test.boardSelectPage(2, 20);
-	 * Exam12Member member = new Exam12Member(); // while(member != null) { //
-	 * for (Exam12Member board : list) { // LOGGER.info(board.getBtitle()); //
-	 * for (int i = 1; i <= 100; i++) { // Exam12Board board = new
-	 * Exam12Board(); // board.setBtitle("title" + i); //
-	 * board.setBcontent("content" + i); // board.setBwriter("Dahye Lee"); //
-	 * board.setBpassword("123456"); // board.setBoriginalfilename("a.png"); //
-	 * board.setBsavedfilename("a-111222.png"); //
-	 * board.setBfilecontent("image/png"); // int bno = test.insert1(board); //
-	 * LOGGER.info("추가된 행 PK bno: " + bno); // }
-	 * 
-	 * for (int i = 1; i <= 100; i++) { if (i >= 1 && i < 10) {
-	 * member.setMid("id00" + i); member.setMage(i); member.setMname("name00" +
-	 * i); member.setMpassword("password00" + i); member.setMaddress("address00"
-	 * + i); member.setMdate(new Date()); member.setMemail("email00" + i);
-	 * member.setMfilecontent("photo00" + i); member.setMtel("phone00" + i); }
-	 * else if (i >= 10 && i < 100) { member.setMid("id0" + i);
-	 * member.setMage(i); member.setMname("name0" + i);
-	 * member.setMpassword("password0" + i); member.setMaddress("address0" + i);
-	 * member.setMdate(new Date()); member.setMemail("email0" + i);
-	 * member.setMfilecontent("photo0" + i); member.setMtel("phone0" + i); }
-	 * else { member.setMid("id" + i); member.setMage(i); member.setMname("name"
-	 * + i); member.setMpassword("password" + i); member.setMaddress("address" +
-	 * i); member.setMdate(new Date()); member.setMemail("email" + i);
-	 * member.setMfilecontent("photo" + i); member.setMtel("phone" + i); }
-	 * test.memberInsert(member); } } // }
-	 */
+//	public static void main(String... args) {
+//		Exam12DaoImpl test = new
+//	  Exam12DaoImpl();  List<Exam12Board> list = test.boardSelectPage(2, 20);
+//	  Exam12Member member = new Exam12Member();  while(member != null) { 
+//	  for (Exam12Member board : list) {  LOGGER.info(board.getBtitle()); 
+//	  for (int i = 1; i <= 100; i++) {  Exam12Board board = new
+//	  Exam12Board();  board.setBtitle("title" + i); 
+//	  board.setBcontent("content" + i);  board.setBwriter("Dahye Lee"); 
+//	  board.setBpassword("123456");  board.setBoriginalfilename("a.png"); 
+//	  board.setBsavedfilename("a-111222.png"); 
+//	  board.setBfilecontent("image/png");  
+//	  int bno = test.insert1(board); 
+//	  LOGGER.info("추가된 행 PK bno: " + bno);  }
+//		Exam12DaoImpl test = new Exam12DaoImpl();
+//	  Exam12Member member = new Exam12Member();
+//	  for (int i = 1; i <= 100; i++) { if (i >= 1 && i < 10) {
+//	  member.setMid("id00" + i); member.setMage(i); member.setMname("name00" +
+//	  i); member.setMpassword("password00" + i); member.setMaddress("address00"
+//	  + i); member.setMdate(new Date()); member.setMemail("email00" + i);
+//	  member.setMfilecontent("photo00" + i); member.setMtel("phone00" + i); }
+//	  else if (i >= 10 && i < 100) { member.setMid("id0" + i);
+//	  member.setMage(i); member.setMname("name0" + i);
+//	  member.setMpassword("password0" + i); member.setMaddress("address0" + i);
+//	  member.setMdate(new Date()); member.setMemail("email0" + i);
+//	  member.setMfilecontent("photo0" + i); member.setMtel("phone0" + i); }
+//	  else { member.setMid("id" + i); member.setMage(i); member.setMname("name"
+//	  + i); member.setMpassword("password" + i); member.setMaddress("address" +
+//	  i); member.setMdate(new Date()); member.setMemail("email" + i);
+//	  member.setMfilecontent("photo" + i); member.setMtel("phone" + i); }
+//	  test.memberInsert(member); } } 
+//}
 }

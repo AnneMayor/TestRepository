@@ -45,7 +45,28 @@ function handleBtnUpdate() {
 }
 
 function handleBtnDelete() {
-	
+	var mpassword = $("#mpassword").val();
+	if(mpassword == "") {
+		$("#mpassword").attr("placeholder", "비밀번호를 입력하세요.");
+		$("#mpassword").css("border-color","red");
+		return;
+	}
+	$.ajax({
+		url:"exam07CheckMpassword",
+		method:"post",
+		data: {"mid" : "${member.mid}", "mpassword": mpassword},
+		success: function(data) {
+			if(data.result == "success") {
+				console.log("success");
+				location.href="exam07Delete?mid=${member.mid}";
+			} else {
+				console.log("fail");
+				$("#mpassword").val("");
+				$("#mpassword").attr("placeholder", "비밀번호가 틀렸습니다.");
+				$("#mpassword").css("border-color", "red");
+			}
+		}
+	});
 }
 
 </script>
@@ -137,9 +158,9 @@ function handleBtnDelete() {
 			</div>
 		</div>
 		
-		<a href="exam07" class="btn btn-success">목록</a> <input type="button"
-		 onclick="handleBtnUpdate()" class="btn btn-warning" value="수정"/> <input
-			type="button" onclick="handleBtnDelete()" class ="btn btn-danger" value="삭제"/>
+		<a href="exam07" class="btn btn-success">목록</a> 
+		<input type="button" onclick="handleBtnUpdate()" class="btn btn-warning" value="수정" /> 
+		<input type="button" onclick="handleBtnDelete()" class ="btn btn-danger" value="삭제" />
 	</form>
 </body>
 </html>

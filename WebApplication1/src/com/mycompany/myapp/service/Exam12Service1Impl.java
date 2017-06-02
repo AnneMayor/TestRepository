@@ -118,6 +118,7 @@ public class Exam12Service1Impl implements Exam12Serivce1 {
 
 	@Override
 	public void memberDelete(String mid) {
+		exam12Dao.memberDelete(mid);
 	}
 
 }

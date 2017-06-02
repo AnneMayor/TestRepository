@@ -8,7 +8,7 @@
 <meta charset=UTF-8">
 <meta name=viewport
 	content="width=device-width initial-scale=1 user-scalable=no">
-<title>게시물 목록</title>
+<title>회원정보수정</title>
 <link
 	href="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -18,6 +18,16 @@
 <script
 	src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/bootstrap-3.3.7-dist/js/bootstrap.min.js"
 	type="text/javascript"></script>
+	<script>
+	function fileChange() {
+		
+		if($("#mattach")[0].files.length != 0) {
+			var originalfilename = $("#mattach")[0].files[0].name;
+			$("#spanFileName").text(originalfilename);
+		}
+		
+	}
+	</script>
 </head>
 <body>
 <h4>회원정보수정</h4>
@@ -32,7 +42,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-user"></span>
 				</span> <input type="text" class="form-control" placeholder="이름" name="mname"
-					value="${member.mname}" disabled />
+					value="${member.mname}" />
 			</div>
 		</div>
 
@@ -41,7 +51,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-user"></span>
 				</span> <input type="text" class="form-control" placeholder="아이디"
-					name="mtitle" value="${member.mid}" disabled />
+					name="mid" value="${member.mid}" disabled />
 			</div>
 		</div>
 		
@@ -59,7 +69,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-tag"></span>
 				</span> <input type="number" class="form-control" placeholder="나이"
-					name="mage" value="${member.mage}" disabled />
+					name="mage" value="${member.mage}" />
 			</div>
 		</div>
 		
@@ -68,7 +78,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="text" class="form-control" placeholder="주소"
-					name="bdate" value="${member.maddress}" disabled />
+					name="maddress" value="${member.maddress}" />
 			</div>
 		</div>
 		<div class="form-group">
@@ -76,7 +86,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="date" class="form-control" placeholder="날짜"
-					name="bhitcount" value="${member.mdate}" disabled />
+					name="mdate" value="${member.mdate}" disabled />
 			</div>
 		</div>
 		
@@ -85,7 +95,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="text" class="form-control" placeholder="이메일"
-					name="bhitcount" value="${member.memail}" disabled />
+					name="memail" value="${member.memail}" />
 			</div>
 		</div>
 		
@@ -94,7 +104,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="text" class="form-control" placeholder="전화번호"
-					name="bhitcount" value="${member.mtel}" disabled />
+					name="mtel" value="${member.mtel}" />
 			</div>
 		</div>
 		
@@ -102,13 +112,15 @@
 			<div class="input-group">
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-camera"></span>
-				</span> <a class="form-control" href="#">${member.moriginalfilename}</a>
+				</span>
+				<span id="spanFileName">${member.moriginalfilename}</span>
+				<label for="mattach" class="btn btn-default">변경</label>
+				<input id="mattach" style="visibility:hidden;" type="file" name="mattach" onchange="fileChange()" multiple/>
 			</div>
 		</div>
 		
-		<a href="exam07" class="btn btn-success">목록</a> <input type="button"
-		 onclick="handleBtnUpdate()" class="btn btn-warning" value="수정" /> <input
-			type="button" onclick="handleBtnDelete()" class ="btn btn-danger" value="삭제" />
+		<input type="submit" class="btn btn-success" value="수정"/>
+		
 	</form>
 </body>
 </html>

@@ -196,11 +196,26 @@ public class Exam12JdbcController {
 	}
 	
 	@RequestMapping(value="/jdbc/exam07Update", method=RequestMethod.POST)
-	public String exam07UpdatePost(String mid, Exam12Member member) {
-		
+	public String exam07UpdatePost(String mid, Exam12Member member) throws IllegalStateException, IOException {
+		if(!member.getMattach().isEmpty()) {
+			member.setMoriginalfilename(member.getMattach().getOriginalFilename());
+			member.setMfilecontent(member.getMattach().getContentType());
+			
+			String realPath = servletContext.getRealPath("/WEB-INF/upload/");
+			String fileName = new Date().getTime() + "-" + member.getMoriginalfilename();
+			File file = new File(realPath + fileName);
+			member.getMattach().transferTo(file);
+			member.setMsavedfilename(fileName);
+		}
 		
 		service.memberUpdate(member);
-		return "jdbc/exam07Update?mid=" + member.getMid();
+		return "redirect:/jdbc/exam07Detail?mid=" + member.getMid();
+	}
+	
+	@RequestMapping("/jdbc/exam07Delete")
+	public String exam07Delete(String mid) {
+		service.memberDelete(mid);
+		return "redirect:/jdbc/exam07";
 	}
 	
 	@RequestMapping("/jdbc/exam05CheckBpassword") 

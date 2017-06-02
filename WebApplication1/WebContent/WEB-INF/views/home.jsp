@@ -53,7 +53,7 @@
 							exam += String.valueOf(i);
 					}%>
 					<a href="bootstrap/<%=exam%>" class="btn btn-primary"><%=exam%></a>
-			<%}%>"
+			<%}%>
 			
 			<h4>JSP</h4>
 			<%for(int i=1;i<=5;i++){
