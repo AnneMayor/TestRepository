@@ -24,22 +24,22 @@ public class PCA9685 {
   // pi4j가 제공하는 패키지
   private PCA9685GpioProvider gpioProvider;
 
-  private static final Pin PWM_00 = PCA9685Pin.PWM_00;
-  private static final Pin PWM_01 = PCA9685Pin.PWM_01;
-  private static final Pin PWM_02 = PCA9685Pin.PWM_02;
-  private static final Pin PWM_03 = PCA9685Pin.PWM_03;
-  private static final Pin PWM_04 = PCA9685Pin.PWM_04;
-  private static final Pin PWM_05 = PCA9685Pin.PWM_05;
-  private static final Pin PWM_06 = PCA9685Pin.PWM_06;
-  private static final Pin PWM_07 = PCA9685Pin.PWM_07;
-  private static final Pin PWM_08 = PCA9685Pin.PWM_08;
-  private static final Pin PWM_09 = PCA9685Pin.PWM_09;
-  private static final Pin PWM_10 = PCA9685Pin.PWM_10;
-  private static final Pin PWM_11 = PCA9685Pin.PWM_11;
-  private static final Pin PWM_12 = PCA9685Pin.PWM_12;
-  private static final Pin PWM_13 = PCA9685Pin.PWM_13;
-  private static final Pin PWM_14 = PCA9685Pin.PWM_14;
-  private static final Pin PWM_15 = PCA9685Pin.PWM_15;
+  public static final Pin PWM_00 = PCA9685Pin.PWM_00;
+  public static final Pin PWM_01 = PCA9685Pin.PWM_01;
+  public static final Pin PWM_02 = PCA9685Pin.PWM_02;
+  public static final Pin PWM_03 = PCA9685Pin.PWM_03;
+  public static final Pin PWM_04 = PCA9685Pin.PWM_04;
+  public static final Pin PWM_05 = PCA9685Pin.PWM_05;
+  public static final Pin PWM_06 = PCA9685Pin.PWM_06;
+  public static final Pin PWM_07 = PCA9685Pin.PWM_07;
+  public static final Pin PWM_08 = PCA9685Pin.PWM_08;
+  public static final Pin PWM_09 = PCA9685Pin.PWM_09;
+  public static final Pin PWM_10 = PCA9685Pin.PWM_10;
+  public static final Pin PWM_11 = PCA9685Pin.PWM_11;
+  public static final Pin PWM_12 = PCA9685Pin.PWM_12;
+  public static final Pin PWM_13 = PCA9685Pin.PWM_13;
+  public static final Pin PWM_14 = PCA9685Pin.PWM_14;
+  public static final Pin PWM_15 = PCA9685Pin.PWM_15;
 
   private int period;
 
@@ -109,20 +109,25 @@ public class PCA9685 {
   public static void main(String... args) throws Exception {
     PCA9685 pca9685 = PCA9685.getInstance();
 
-    // 0도로 회전
-    //pca9685.setDuration(PWM_00, 750);
-    pca9685.setStep(PWM_00, 164);
-    //pca9685.setDuration(PWM_01, 750);
-    // Thread를 줘야 돌아갈 시간을 줄 수 있어 돌아감.
-    Thread.sleep(2000);
-    pca9685.setStep(PWM_00, 358);
-    //pca9685.setDuration(PWM_00, (750 + 2300) / 2);
-    //pca9685.setDuration(PWM_01, (750 + 2300) / 2);
-    Thread.sleep(2000);
-    pca9685.setStep(PWM_00, 552);
+//    // 0도로 회전
+//    //pca9685.setDuration(PWM_00, 750);
+//    pca9685.setStep(PWM_00, 164);
+//    //pca9685.setDuration(PWM_01, 750);
+//    // Thread를 줘야 돌아갈 시간을 줄 수 있어 돌아감.
+//    Thread.sleep(2000);
+//    pca9685.setStep(PWM_00, 358);
+//    //pca9685.setDuration(PWM_00, (750 + 2300) / 2);
+//    //pca9685.setDuration(PWM_01, (750 + 2300) / 2);
+//    Thread.sleep(2000);
+//    pca9685.setStep(PWM_00, 552);
     //pca9685.setDuration(PWM_00, 2300);
     //pca9685.setDuration(PWM_01, 2300);
+//    pca9685.setStep(PWM_09, 164);
+//    Thread.sleep(2000);
+    pca9685.setStep(PWM_09, 358);
     Thread.sleep(2000);
+//    pca9685.setStep(PWM_09, 552);
+//    Thread.sleep(2000);
 
     //pca9685.setDuration(PWM_02, 750);
   }
