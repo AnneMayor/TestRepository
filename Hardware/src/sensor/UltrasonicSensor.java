@@ -68,7 +68,7 @@ public class UltrasonicSensor {
       getDistance(); // 더미: 가짜로 한번 읽어보기(dummy read)
       distance = getDistance();
     } else {
-      again = false;
+      again = false; 
     }
     // 
     // 초과값 검사(2 ~ 400cm)
@@ -82,7 +82,7 @@ public class UltrasonicSensor {
   }
 
   public static void main(String... args) throws InterruptedException {
-    UltrasonicSensor test = new UltrasonicSensor(RaspiPin.GPIO_00, RaspiPin.GPIO_01);
+    UltrasonicSensor test = new UltrasonicSensor(RaspiPin.GPIO_28, RaspiPin.GPIO_29);
     while (true) {
       int distance = test.getDistance();
       System.out.println("거리(cm): " + distance);

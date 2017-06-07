@@ -23,27 +23,26 @@
 <style>
 td {
 	text-align: center;
-	vertical-align: middle;
 }
 </style>
 <body>
 	<h1 style="text-align: center;">Australia(호주)</h1>
-	<table style="width: 700px; margin-left: 23%;"
+	<table style="width: 700px; margin-left: 30%;"
 		class="table table-bordered">
 		<tr class="success">
-			<td>번호</td>
-			<td>날짜</td>
-			<td>장소</td>
-			<td>별점</td>
-			<td>이미지</td>
+			<td style="vertical-align: middle;">번호</td>
+			<td style="vertical-align: middle;">날짜</td>
+			<td style="vertical-align: middle;">장소</td>
+			<td style="vertical-align: middle;">별점</td>
+			<td style="vertical-align: middle;">이미지</td>
 		</tr>
 		<c:forEach var="t" items="${list}">
 			<tr>
-				<td>${t.tnumber}</td>
-				<td>${t.tdate}</td>
-				<td><a href="photoDetail?tnumber=${t.tnumber}">${t.tplace}</a></td>
-				<td>${t.tstar}</td>
-				<td><img class="img-rounded"
+				<td style="vertical-align: middle;">${t.tnumber}</td>
+				<td style="vertical-align: middle;">${t.tdate}</td>
+				<td style="vertical-align: middle;"><a href="photoDetail?tnumber=${t.tnumber}">${t.tplace}</a></td>
+				<td style="vertical-align: middle;">${t.tstar}</td>
+				<td style="vertical-align: middle;"><img class="img-rounded"
 					src="file/austrailia?tnumber=${t.tnumber}" width="200px"></td>
 			</tr>
 		</c:forEach>

@@ -29,20 +29,20 @@ public class TravelDaoImpl implements TravelDao {
 
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			String url = "jdbc:oracle:thin:@192.168.35.219:1521:orcl";
+			String url = "jdbc:oracle:thin:@192.168.3.128:1521:orcl";
 			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
 
-			String sql = "insert into austrailia ";
+			String sql = "insert into austrailia  ";
 			sql += "values ";
-			sql += "(austrailia_tnum_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql += "(austrailia_tnumber_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
 			PreparedStatement pstm = conn.prepareStatement(sql, new String[]{"tnumber"});
-			pstm.setString(1, travel.getTplace());
-			pstm.setString(2, travel.getTstar());
-			pstm.setString(3, travel.getTduration());
-			pstm.setString(4, travel.getTdescription());
-			pstm.setString(5, travel.getTrecommendation());
-			pstm.setString(6, travel.getTdate());
+			pstm.setString(2, travel.getTplace());
+			pstm.setString(3, travel.getTstar());
+			pstm.setString(4, travel.getTduration());
+			pstm.setString(5, travel.getTdescription());
+			pstm.setString(6, travel.getTrecommendation());
+			pstm.setString(1, travel.getTdate());
 			pstm.setString(7, travel.getToriginalfilename());
 			pstm.setString(8, travel.getTsavedfilename());
 			pstm.setString(9, travel.getTfilecontent());
@@ -77,7 +77,7 @@ public class TravelDaoImpl implements TravelDao {
 
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			String url = "jdbc:oracle:thin:@192.168.35.219:1521:orcl";
+			String url = "jdbc:oracle:thin:@192.168.3.128:1521:orcl";
 			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
 			String sql = "select tnumber, tdate, tplace, tstar, tduration, tfilecontent ";
 			sql += " from ( select rownum as r, tnumber, tdate, tplace, tstar, tduration, tfilecontent ";
@@ -121,7 +121,7 @@ public class TravelDaoImpl implements TravelDao {
 		
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			String url = "jdbc:oracle:thin:@192.168.35.219:1521:orcl";
+			String url = "jdbc:oracle:thin:@192.168.3.128:1521:orcl";
 			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
 			
 			String sql = "select * from austrailia where tnumber=?";
@@ -187,7 +187,7 @@ public class TravelDaoImpl implements TravelDao {
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			String url = "jdbc:oracle:thin:@192.168.35.219:1521:orcl";
+			String url = "jdbc:oracle:thin:@192.168.3.128:1521:orcl";
 			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
 
 			String sql = "select count(*) from austrailia ";
@@ -217,7 +217,7 @@ public class TravelDaoImpl implements TravelDao {
 		Connection connection = null;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			String conn = "jdbc:oracle:thin:@192.168.35.219:1521:orcl";
+			String conn = "jdbc:oracle:thin:@192.168.3.128:1521:orcl";
 			connection = DriverManager.getConnection(conn, "iotuser", "iot12345");
 
 			String sql;
@@ -262,7 +262,7 @@ public class TravelDaoImpl implements TravelDao {
 		Connection connection = null;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			String conn = "jdbc:oracle:thin:@192.168.35.219:1521:orcl";
+			String conn = "jdbc:oracle:thin:@192.168.3.128:1521:orcl";
 			connection = DriverManager.getConnection(conn, "iotuser", "iot12345");
 
 			String sql = " delete from austrailia where tnumber=? ";

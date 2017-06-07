@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
 <html>
 	 <head>
-			<meta charset=UTF-8">
+			<meta charset="UTF-8">
 			<meta name= viewport content="width=device-width initial-scale=1 user-scalable=no">
 			<title>Home</title>
 			<link href="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -95,6 +95,14 @@
 			<h4>Redirect</h4>
 			<a href="redirect/write" class="btn btn-warning">게시물 작성</a>
 			<a href="redirect/list" class="btn btn-primary">게시물 목록</a>
+			
+			<h4>상태유지</h4>
+			<a href="session/exam01" class="btn btn-primary">서버 세션 저장</a>
+			<a href="session/exam02" class="btn btn-primary">서버 세션 읽기</a>
+			<a href="session/exam03" class="btn btn-primary">서버 세션 제거</a>
+			<a href="cookie/exam01" class="btn btn-primary">클라이언트 쿠키 저장</a>
+			<a href="cookie/exam02" class="btn btn-primary">클라이언트 쿠키 읽기</a>
+			<a href="cookie/exam03" class="btn btn-primary">클라이언트 쿠키 제거</a>
 			
 			<h4>JDBC</h4>
 			<a href="jdbc/exam01" class="btn btn-success">글쓰기</a>

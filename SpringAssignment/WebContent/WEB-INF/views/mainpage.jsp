@@ -32,7 +32,7 @@ p {
 }
 
 #gate {
-	margin-left: 46%;
+	margin-left: 50%;
 }
 
 </style>

@@ -107,7 +107,7 @@
 			</div>
 		</div>
 
-		<a href="photolist" class="btn btn-success">목록</a> <input type="button" 
+		<a href="photolist?pageNo=" class="btn btn-success">목록</a> <input type="button" 
 		 onclick="handleBtnUpdate()" class="btn btn-warning" value="수정" /> <input
 			type="button" onclick="handleBtnDelete()" class ="btn btn-danger" value="삭제" />
 	</form>

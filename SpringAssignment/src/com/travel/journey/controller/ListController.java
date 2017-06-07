@@ -42,7 +42,7 @@ public class ListController {
 			File file = new File(realPath + fileName);
 			travel.getTattach().transferTo(file);
 			travel.setTsavedfilename(fileName);
-			travel.setTfilecontent("/WEB-INF/upload/" + originalFileName);
+			travel.setTfilecontent("/WEB-INF/upload/" + fileName);
 		}
 		travelService.travelWrite(travel);
 		return "redirect:/photolist";
@@ -99,6 +99,7 @@ public class ListController {
 			String fileName = new Date().getTime() + "-" + travel.getToriginalfilename();
 
 			File file = new File(realPath + fileName);
+			
 			travel.getTattach().transferTo(file);
 			travel.setTsavedfilename(fileName);
 			travel.setTfilecontent("/WEB-INF/upload/" + originalFileName);

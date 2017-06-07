@@ -3,17 +3,25 @@ package com.travel.journey.dto;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Travel {
+	
 	private long tnumber;
 	private String tdate;
 	private String tplace;
 	private String tstar;
-	private String timage;
 	private String tduration;
 	private String tdescription;
 	private String trecommendation;
 	private String toriginalfilename;
 	private String tsavedfilename;
 	private String tfilecontent;
+	private String tfileformat;
+	
+	public String getTfileformat() {
+		return tfileformat;
+	}
+	public void setTfileformat(String tfileformat) {
+		this.tfileformat = tfileformat;
+	}
 	private MultipartFile tattach;
 	
 	public long getTnumber() {
