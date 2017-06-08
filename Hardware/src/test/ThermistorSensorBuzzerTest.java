@@ -1,9 +1,9 @@
 package test;
 
-import buzzer.ActiveBuzzer;
+import hardware.buzzer.ActiveBuzzer;
 import com.pi4j.io.gpio.RaspiPin;
-import converter.PCF8591;
-import sensor.ThermistorSensor;
+import hardware.converter.PCF8591;
+import hardware.sensor.ThermistorSensor;
 
 public class ThermistorSensorBuzzerTest {
 

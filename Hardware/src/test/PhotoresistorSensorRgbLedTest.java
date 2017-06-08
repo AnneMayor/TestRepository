@@ -1,9 +1,9 @@
 package test;
 
 import com.pi4j.io.gpio.RaspiPin;
-import converter.PCF8591;
-import led.RGBLedDigital;
-import sensor.PhotoresistorSensor;
+import hardware.converter.PCF8591;
+import hardware.led.RGBLedDigital;
+import hardware.sensor.PhotoresistorSensor;
 
 public class PhotoresistorSensorRgbLedTest {
 

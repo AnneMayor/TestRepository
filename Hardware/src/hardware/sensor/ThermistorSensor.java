@@ -1,6 +1,6 @@
-package sensor;
+package hardware.sensor;
 
-import converter.PCF8591;
+import hardware.converter.PCF8591;
 
 public class ThermistorSensor {
   private PCF8591 pcf8591;
@@ -19,7 +19,7 @@ public class ThermistorSensor {
   }
   
   public static void main(String...args) throws Exception {
-    PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN0);
+    PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN1);
     ThermistorSensor thermistorSensor = new ThermistorSensor(pcf8591);
     while(true) {
       double value = thermistorSensor.getValue();

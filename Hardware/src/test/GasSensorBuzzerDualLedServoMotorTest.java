@@ -1,13 +1,13 @@
 package test;
 
-import buzzer.ActiveBuzzer;
+import hardware.buzzer.ActiveBuzzer;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
-import converter.PCF8591;
+import hardware.converter.PCF8591;
 import java.io.IOException;
-import led.DualColorLed;
-import motor.SG90Servo;
-import sensor.GasSensor;
+import hardware.led.DualColorLed;
+import hardware.motor.SG90Servo;
+import hardware.sensor.GasSensor;
 
 public class GasSensorBuzzerDualLedServoMotorTest {
   public static void main(String...args) throws IOException {

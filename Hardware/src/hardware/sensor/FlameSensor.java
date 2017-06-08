@@ -1,4 +1,4 @@
-package sensor;
+package hardware.sensor;
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
@@ -8,7 +8,7 @@ import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
-import converter.PCF8591;
+import hardware.converter.PCF8591;
 
 public class FlameSensor {
 

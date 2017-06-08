@@ -1,4 +1,4 @@
-package motor;
+package hardware.motor;
 
 import com.pi4j.gpio.extension.pca.PCA9685GpioProvider;
 import com.pi4j.gpio.extension.pca.PCA9685Pin;

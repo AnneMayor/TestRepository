@@ -1,9 +1,9 @@
 package test;
-import buzzer.ActiveBuzzer;
+import hardware.buzzer.ActiveBuzzer;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 import java.io.IOException;
-import sensor.TrackingSensor;
+import hardware.sensor.TrackingSensor;
 
 public class TrackingSensorTest {
   public static void main(String...args) throws IOException {

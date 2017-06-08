@@ -11,7 +11,7 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import motor.SG90Servo;
+import hardware.motor.SG90Servo;
 
 public class MotorTouchTest {
 

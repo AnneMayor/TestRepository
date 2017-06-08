@@ -1,14 +1,14 @@
 package test;
 
-import buzzer.ActiveBuzzer;
+import hardware.buzzer.ActiveBuzzer;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
-import converter.PCF8591;
+import hardware.converter.PCF8591;
 import java.io.IOException;
-import led.DualColorLed;
-import sensor.FlameSensor;
+import hardware.led.DualColorLed;
+import hardware.sensor.FlameSensor;
 
 public class FlameSensorBuzzerDualLedTest {
   public static void main(String...args) throws IOException {

@@ -1,6 +1,6 @@
-package sensor;
+package hardware.sensor;
 
-import converter.PCF8591;
+import hardware.converter.PCF8591;
 
 public class PhotoresistorSensor {
 
