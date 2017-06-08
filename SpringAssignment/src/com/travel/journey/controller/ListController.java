@@ -102,7 +102,7 @@ public class ListController {
 			
 			travel.getTattach().transferTo(file);
 			travel.setTsavedfilename(fileName);
-			travel.setTfilecontent("/WEB-INF/upload/" + originalFileName);
+			travel.setTfilecontent("/WEB-INF/upload/" + fileName);
 
 		}
 		travelService.travelUpdate(travel);

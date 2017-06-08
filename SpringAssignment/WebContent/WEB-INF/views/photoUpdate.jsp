@@ -24,8 +24,31 @@
 		if ($("#tattach")[0].files.length != 0) {
 			var originalfilename = $("#tattach")[0].files[0].name;
 			$("#spanFileName").text(originalfilename);
-		}
 	}
+</script>
+<script type="text/javascript">
+ 
+ 	function handleImageView(files){		
+ 		var file = files[0];
+ 
+ 		if(!file.type.match(/image.*/)){
+ 			alert("not image file!");
+ 		}			
+ 		var reader = new FileReader();
+ 		
+ 		reader.onload = function(e){
+ 			
+ 			var img = new Image();
+ 			img.onload = function(){
+ 				var ctx = document.getElementById("cview").getContext("2d");
+ 				ctx.drawImage(img,0,0,480,320);
+ 			}
+ 			img.src = e.target.result;
+ 		}
+ 		
+ 		reader.readAsDataURL(file);
+ 	}
+ 
 </script>
 <style>
 .form-group {
@@ -42,6 +65,7 @@ width: 700px;
 		enctype="multipart/form-data">
 		<input type="image" name="timage"
 			class="img-rounded" src="file/austrailia?tnumber=${travel.tnumber}" width="700px"/>
+			<canvas id="preview" width="700px"></canvas>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"> <span
@@ -118,11 +142,16 @@ width: 700px;
 						for="tattach" class="btn btn-default">변경</label> <input
 						id="tattach" style="visibility: hidden;" type="file"
 						name="tattach" onchange="fileChange()" multiple />
+						<input type="file" id="inputfile" onchange="handleImageView(this.files)" />
 				</div>
 			</div>
 		</div>
 
 		<input type="submit" class="btn btn-info" value="수정하기" />
 	</form>
+	
+	<input type="file" id="inputfile" onchange="handleImageView(this.files)">
+	<canvas id="cview" width="480" height="320" style="border:solid 3px #CCC;"></canvas>
+
 </body>
 </html>
