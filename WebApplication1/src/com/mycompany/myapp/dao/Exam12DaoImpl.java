@@ -6,19 +6,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.myapp.dto.Exam12Board;
 import com.mycompany.myapp.dto.Exam12Member;
 
+/* 여기서 작성한 코드는 JDBC API를 직접 활용한 것이다. 스프링을 사용하면 이렇게 할 필요없음. 이런 식으로 사용할 경우, DB계정이 노출되고 비밀번호 변경시 다시 다 코드를 바꿔줘야한다. 보다 큰 문제는 dao가 예외처리를 한다면
+ 여기서 예외가 발생할 시, service가 알아채지 못할수도 있음.
+*/
 @Component
 public class Exam12DaoImpl implements Exam12Dao {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Exam12DaoImpl.class);
+	
+	@Autowired
+	private DataSource dataSource;
 
 	// 여기서는 유지보수를 쉽게 하기 위해서 이렇게 인터페이스 선언하고 구현객체 만듦.
 	@Override
@@ -27,11 +35,13 @@ public class Exam12DaoImpl implements Exam12Dao {
 		Connection conn = null;
 		try {
 			// JDBC Driver 클래스 로딩
-			Class.forName("oracle.jdbc.OracleDriver");
+			// Class.forName("oracle.jdbc.OracleDriver");
 			// 연결 문자열 작성
-			String connString = "jdbc:oracle:thin:@localhost:1521:orcl";
+			// String connString = "jdbc:oracle:thin:@localhost:1521:orcl";
 			// 연결 객체 얻기
-			conn = DriverManager.getConnection(connString, "iotuser", "iot12345");
+			// conn = DriverManager.getConnection(connString, "iotuser",
+			// "iot12345");
+			conn = dataSource.getConnection();
 			LOGGER.info("Connection success");
 			// 매개 변수화된 SQL문 작성
 			String sql = "insert into board ";
@@ -65,15 +75,13 @@ public class Exam12DaoImpl implements Exam12Dao {
 			 * stmt.close();
 			 */
 			LOGGER.info("행추가 성공");
-		} catch (ClassNotFoundException e) {
-			// 예외가 발생하면 연결을 끊을 수가 없어서 connection leak가 발생.
-			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			// 위에서 null로 선언안하면 값을 닫을게 없어서 컴파일 에러 발생
 			try {
 				// 연결 끊기
+				// dataSource에서 Connection pool을 빌려왔을 경우 이건 다시 반납한다는 의미임!오해하지말자!
 				conn.close();
 				LOGGER.info("Connection close");
 			} catch (SQLException e) {
@@ -639,35 +647,35 @@ public class Exam12DaoImpl implements Exam12Dao {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//	public static void main(String... args) {
-//		Exam12DaoImpl test = new
-//	  Exam12DaoImpl();  List<Exam12Board> list = test.boardSelectPage(2, 20);
-//	  Exam12Member member = new Exam12Member();  while(member != null) { 
-//	  for (Exam12Member board : list) {  LOGGER.info(board.getBtitle()); 
-//	  for (int i = 1; i <= 100; i++) {  Exam12Board board = new
-//	  Exam12Board();  board.setBtitle("title" + i); 
-//	  board.setBcontent("content" + i);  board.setBwriter("Dahye Lee"); 
-//	  board.setBpassword("123456");  board.setBoriginalfilename("a.png"); 
-//	  board.setBsavedfilename("a-111222.png"); 
-//	  board.setBfilecontent("image/png");  
-//	  int bno = test.insert1(board); 
-//	  LOGGER.info("추가된 행 PK bno: " + bno);  }
-//		Exam12DaoImpl test = new Exam12DaoImpl();
-//	  Exam12Member member = new Exam12Member();
-//	  for (int i = 1; i <= 100; i++) { if (i >= 1 && i < 10) {
-//	  member.setMid("id00" + i); member.setMage(i); member.setMname("name00" +
-//	  i); member.setMpassword("password00" + i); member.setMaddress("address00"
-//	  + i); member.setMdate(new Date()); member.setMemail("email00" + i);
-//	  member.setMfilecontent("photo00" + i); member.setMtel("phone00" + i); }
-//	  else if (i >= 10 && i < 100) { member.setMid("id0" + i);
-//	  member.setMage(i); member.setMname("name0" + i);
-//	  member.setMpassword("password0" + i); member.setMaddress("address0" + i);
-//	  member.setMdate(new Date()); member.setMemail("email0" + i);
-//	  member.setMfilecontent("photo0" + i); member.setMtel("phone0" + i); }
-//	  else { member.setMid("id" + i); member.setMage(i); member.setMname("name"
-//	  + i); member.setMpassword("password" + i); member.setMaddress("address" +
-//	  i); member.setMdate(new Date()); member.setMemail("email" + i);
-//	  member.setMfilecontent("photo" + i); member.setMtel("phone" + i); }
-//	  test.memberInsert(member); } } 
-//}
+	// public static void main(String... args) {
+	// Exam12DaoImpl test = new
+	// Exam12DaoImpl(); List<Exam12Board> list = test.boardSelectPage(2, 20);
+	// Exam12Member member = new Exam12Member(); while(member != null) {
+	// for (Exam12Member board : list) { LOGGER.info(board.getBtitle());
+	// for (int i = 1; i <= 100; i++) { Exam12Board board = new
+	// Exam12Board(); board.setBtitle("title" + i);
+	// board.setBcontent("content" + i); board.setBwriter("Dahye Lee");
+	// board.setBpassword("123456"); board.setBoriginalfilename("a.png");
+	// board.setBsavedfilename("a-111222.png");
+	// board.setBfilecontent("image/png");
+	// int bno = test.insert1(board);
+	// LOGGER.info("추가된 행 PK bno: " + bno); }
+	// Exam12DaoImpl test = new Exam12DaoImpl();
+	// Exam12Member member = new Exam12Member();
+	// for (int i = 1; i <= 100; i++) { if (i >= 1 && i < 10) {
+	// member.setMid("id00" + i); member.setMage(i); member.setMname("name00" +
+	// i); member.setMpassword("password00" + i); member.setMaddress("address00"
+	// + i); member.setMdate(new Date()); member.setMemail("email00" + i);
+	// member.setMfilecontent("photo00" + i); member.setMtel("phone00" + i); }
+	// else if (i >= 10 && i < 100) { member.setMid("id0" + i);
+	// member.setMage(i); member.setMname("name0" + i);
+	// member.setMpassword("password0" + i); member.setMaddress("address0" + i);
+	// member.setMdate(new Date()); member.setMemail("email0" + i);
+	// member.setMfilecontent("photo0" + i); member.setMtel("phone0" + i); }
+	// else { member.setMid("id" + i); member.setMage(i); member.setMname("name"
+	// + i); member.setMpassword("password" + i); member.setMaddress("address" +
+	// i); member.setMdate(new Date()); member.setMemail("email" + i);
+	// member.setMfilecontent("photo" + i); member.setMtel("phone" + i); }
+	// test.memberInsert(member); } }
+	// }
 }

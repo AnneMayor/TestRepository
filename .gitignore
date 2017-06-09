@@ -24,3 +24,6 @@
 /Hardware/build/
 /Hardware/dist/
 /WebApplication1/target/
+/Network/nbproject/private/
+/Network/build/
+/Network/dist/

@@ -11,9 +11,9 @@ import com.mycompany.myapp.dto.Exam12Board;
 import com.mycompany.myapp.dto.Exam12Member;
 
 @Component
-public class Exam12Service1Impl implements Exam12Serivce1 {
+public class Exam12Service1Impl2 implements Exam12Serivce1 {
 
-	@Resource(name="exam12DaoImpl")
+	@Resource(name="exam12DaoImpl2")
 	private Exam12Dao exam12Dao;
 	
 	@Override

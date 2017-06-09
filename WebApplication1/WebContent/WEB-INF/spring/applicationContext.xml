@@ -3,5 +3,33 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- Connection Pool(DataSource) 설정 -->
+	<!-- DataSource: 인터페이스(사용설명서)로 객체마다 사용방법을 통일하기 위하여 인터페이스로 선언 -->
+	<!-- dataSource1, dataSource2 이런 식으로 DB 여러개 사용하겠다고 선언해줌 -->
+	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="oracle.jdbc.OracleDriver" />
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+		<property name="user" value="iotuser" />
+		<property name="password" value="iot12345" />
+		<property name="maxPoolSize" value="1" />
+		<property name="initialPoolSize" value="1" />
+		<property name="acquireIncrement" value="1" />
+		<property name="minPoolSize" value="1" />
+		<!-- maxIdleTime: 최소 개수로 줄일 때 얼마만큼의 시간동안 응답이 없었냐할 때 기준으로 쓰이는 시간 -->
+	</bean>
 
+	<!-- JDBC Template 설정 -->
+	<bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<!-- MyBatis -->
+	<!-- bean태그 name은 아무거나 가능.관례적으로 이렇게 해줄 뿐!(property는 아니다!) -->
+	<!-- <bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
+		<property name="dataSource" ref="dataSource" /> -->
+	<!-- 테이블과 자바 객체를 연결해주는 태그. 다음의 경로에 xml을 저장하여 거기에서 불러와 그 조건에 맞는 sqlSession객체 
+		생성하게끔 만들어줌. -->
+	<!-- <property name="mapperLocations" value="/WEB-INF/mybatis/*.xml"></property> 
+		</bean> <bean name="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate"> 
+		<constructor-arg ref="sqlSessionFactory" /> </bean> -->
 </beans>

@@ -97,9 +97,9 @@
 			<a href="redirect/list" class="btn btn-primary">게시물 목록</a>
 			
 			<h4>상태유지</h4>
-			<a href="session/exam01" class="btn btn-primary">서버 세션 저장</a>
-			<a href="session/exam02" class="btn btn-primary">서버 세션 읽기</a>
-			<a href="session/exam03" class="btn btn-primary">서버 세션 제거</a>
+			<a href="session/exam04" class="btn btn-primary">서버 세션 저장</a>
+			<a href="session/exam05" class="btn btn-primary">서버 세션 읽기</a>
+			<a href="session/exam06" class="btn btn-primary">서버 세션 제거</a>
 			<a href="cookie/exam01" class="btn btn-primary">클라이언트 쿠키 저장</a>
 			<a href="cookie/exam02" class="btn btn-primary">클라이언트 쿠키 읽기</a>
 			<a href="cookie/exam03" class="btn btn-primary">클라이언트 쿠키 제거</a>
