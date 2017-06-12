@@ -13,7 +13,8 @@ public class CoapResource01Client {
   
   public String get() {
     // 여기에 들어가야할 정보: IP, 포트번호, 리소스 식별이름
-    coapClient.setURI("coap://192.168.3.44/resource01");
+    coapClient.setURI("coap://192.168.3.46/resource01");
+    // 동기방식(server-client)
     CoapResponse response = coapClient.get();
     // payload가 실려있는 응답일 경우(정상적으로 연결된 경우)
     if(response.getCode() == CoAP.ResponseCode.CONTENT) {
