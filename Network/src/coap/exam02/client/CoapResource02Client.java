@@ -12,6 +12,7 @@ public class CoapResource02Client {
 
   public CoapResource02Client() {
     coapClient = new CoapClient();
+//    coapClient.useCONs(); // default!(지금은 둘 중 아무거나 해도 문제가 없음.)
     coapClient.useNONs();
   }
 
@@ -19,7 +20,7 @@ public class CoapResource02Client {
     // 여기에 들어가야할 정보: IP, 포트번호, 리소스 식별이름
     String queryString = "kind=ultrasonicsensor&angle=" + angle;
     coapClient.setURI("coap://192.168.3.46/resource02?" + queryString);
-    // 동기방식(server-client)
+    // 동기방식(server-client): 만약, 서버에서 5초간 기다린다면 클라이언트도 5초간 대기한 다음 값을 받음.
     CoapResponse response = coapClient.get();
     // payload가 실려있는 응답일 경우(정상적으로 연결된 경우)
     if (response == null) {
