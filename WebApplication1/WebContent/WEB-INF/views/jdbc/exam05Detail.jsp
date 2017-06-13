@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=UTF-8">
+<meta charset="UTF-8">
 <meta name=viewport
 	content="width=device-width initial-scale=1 user-scalable=no">
 <title>글쓰기</title>
@@ -70,7 +70,7 @@
 </script>
 </head>
 <body>
-	<h4>게시물 쓰기</h4>
+	<h4>게시물 상세</h4>
 	<hr />
 
 	<!-- 자기 경로일 경우, action 생략가능. action에는 보통 상대경로를 써준다.  -->
@@ -105,7 +105,7 @@
 			<div class="input-group">
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
-				</span> <input type="date" class="form-control" placeholder="글쓴날짜"
+				</span> <input type="text" class="form-control" placeholder="글쓴날짜"
 					name="bdate" value="${board.bdate}" disabled />
 			</div>
 		</div>

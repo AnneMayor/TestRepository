@@ -25,11 +25,13 @@
 
 	<!-- MyBatis -->
 	<!-- bean태그 name은 아무거나 가능.관례적으로 이렇게 해줄 뿐!(property는 아니다!) -->
-	<!-- <bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
-		<property name="dataSource" ref="dataSource" /> -->
-	<!-- 테이블과 자바 객체를 연결해주는 태그. 다음의 경로에 xml을 저장하여 거기에서 불러와 그 조건에 맞는 sqlSession객체 
-		생성하게끔 만들어줌. -->
-	<!-- <property name="mapperLocations" value="/WEB-INF/mybatis/*.xml"></property> 
-		</bean> <bean name="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate"> 
-		<constructor-arg ref="sqlSessionFactory" /> </bean> -->
+	<bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 테이블과 자바 객체를 연결해주는 태그. 다음의 경로에 xml을 저장하여 거기에서 불러와 그 조건에 맞는 sqlSession객체 
+			생성하게끔 만들어줌. -->
+		<property name="mapperLocations" value="/WEB-INF/mybatis/*.xml"></property>
+	</bean>
+	<bean name="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
 </beans>

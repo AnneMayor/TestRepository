@@ -127,7 +127,7 @@ function handleBtnDelete() {
 			<div class="input-group">
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
-				</span> <input type="date" class="form-control" placeholder="날짜"
+				</span> <input type="text" class="form-control" placeholder="날짜"
 					name="mdate" value="${member.mdate}" disabled />
 			</div>
 		</div>

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 
 import com.mycompany.myapp.dto.Exam13Member;
 
@@ -86,7 +88,7 @@ public class Exam13CookieAndSessionController {
 
 		cookie1.setMaxAge(0);
 		cookie2.setMaxAge(0);
-
+		
 		reponse.addCookie(cookie1);
 		reponse.addCookie(cookie2);
 		return "redirect:/";
@@ -153,6 +155,7 @@ public class Exam13CookieAndSessionController {
 	public String exam06(SessionStatus sessionStatus) {
 		// 세션에 있는 모든 정보를 삭제
 		// @SessionAttributes를 사용할 경우 이용
+		RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
 		sessionStatus.setComplete();
 		return "redirect:/";
 	}

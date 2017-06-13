@@ -112,5 +112,11 @@
 			<a href="jdbc/exam05" class="btn btn-success">게시물 페이지 목록</a>
 			<a href="jdbc/exam06" class="btn btn-success">회원 목록</a>
 			<a href="jdbc/exam07" class="btn btn-success">회원 페이지 목록</a>
+			
+			<h4>AOP</h4>
+			<a href="jdbc/exam05" class="btn btn-primary">실행 시간 체크</a>
+			<a href="aop/exam01" class="btn btn-success">로그인하기</a>
+			<a href="aop/exam02Write" class="btn btn-warning">로그인해야 볼 수 있는 내용1</a>
+			<a href="aop/exam02Update" class="btn btn-success">로그인해야 볼 수 있는 내용2</a>
 	 </body>
 </html>

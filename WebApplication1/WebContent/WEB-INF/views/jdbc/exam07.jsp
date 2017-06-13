@@ -57,5 +57,6 @@
 
 		<a href="exam07?pageNo=${totalPageNo}">[맨끝]</a>
 	</div>
+	<a href="exam03" class="btn btn-primary">회원정보추가</a>
 </body>
 </html>

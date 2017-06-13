@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- mapper: mapper태그로 루트태그를 작성해야한다. 에디터는 마지막에 명시된 주소에서 파일을 다운로드함.이건 없어도 
+	되나 정확한 인식을 위해 써줌. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace의 역할: 안에 명시될 태그들이 어떤 파일의 태그인지 체크하도록 식별해줌. -->
+<!-- MyBatis에선 물음표 대신 #{}이걸 쓴다. 이는 DTO 필드값을 넣으라는 의미 -->
+<mapper namespace="board">
+	<insert id="insert" parameterType="com.mycompany.myapp.dto.Exam12Board">
+		<selectKey keyProperty="bno" resultType="int" order="AFTER">
+			<!-- from dual: 실제 테이블에서 가져오는 것이 아닐 경우, 가상의 테이블에서 가져온다는 의미에서 from dual이라고 
+				써줌. 문법을 맞춰주기 위해서임! -->
+			<!-- 하나의 세션에서만 실행되는 select문. 6/12 필기 참조! -->
+			select board_bno_seq.currval from dual
+		</selectKey>
+		insert into board
+		values
+		(board_bno_seq.nextval, #{btitle}, #{bcontent},
+		#{bwriter}, sysdate, #{bpassword}, 0,
+		#{boriginalfilename},
+		#{bsavedfilename}, #{bfilecontent})
+	</insert>
+      <!-- 컬럼명과 DTO객체 필드이름이 다를 경우!
+	<resultMap id="selectAllResultMap" type="com.mycompany.myapp.dto.Exam12Board">
+		<result column="bid" property="bno" />
+		<result column="btitle" property="btitle" />
+		<result column="bowner" property="bwriter" />
+		<result column="bdate" property="bdate" />
+		<result column="bhitcount" property="bhitcount" />
+	</resultMap>
+	-->
+	<select id="selectAll" resultType="com.mycompany.myapp.dto.Exam12Board">
+		<!-- 이 아이의 경우, resultType객체의 필드이름과 select하는 컬럼의 이름과 동일한 경우 자동으로 setting을 
+			해준다. JDBCTemplate의 경우, rowMapper를 사용. -->
+		<!-- select bno as bid 이런 식으로 바꿔서 하게되면 DB에서 값을 가지고 오지 못하게 됨. -->
+		select bno, btitle, bwriter, bdate, bhitcount from
+		board order by bno
+		desc
+	</select>
+
+<!-- xml에서 사용할 수 없는 기호를 사용하고자 할 때에는 '문자참조'를 활용!여기서는 '<'기호 사용할 수 없다! -->
+	<select id="selectByPage" parameterType="map"
+		resultType="com.mycompany.myapp.dto.Exam12Board">
+		select * from (select rownum as r, bno, btitle, bwriter, bdate, bhitcount from ( select bno, btitle, bwriter, bdate, bhitcount from board order by bno desc)
+		where rownum&lt;= #{endNum})
+		where r&gt;= #{startNum}
+	</select>
+	
+	<select id="countAll" resultType="int">
+	select count(*) from board
+	</select>
+	
+	<select id="selectByBno" resultType="com.mycompany.myapp.dto.Exam12Board" parameterType="int">
+	select * from board where bno=#{bno}
+	</select>
+	
+	<update id="updateBhitcount" parameterType="map">
+	update board set bhitcount=#{bhitcount} where bno=#{bno} 
+	</update>
+	
+	<update id="update" parameterType="com.mycompany.myapp.dto.Exam12Board">
+	<if test="boriginalfilename != null">update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate, boriginalfilename=#{boriginalfilename},  bsavedfilename=#{bsavedfilename}, bfilecontent=#{bfilecontent} where bno=#{bno} </if>
+	<if test="boriginalfilename == null">update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate where bno=#{bno}</if>
+	</update>
+	
+	<delete id="delete" parameterType="int">
+	delete from board where bno=#{bno} 
+	</delete>
+</mapper>

@@ -45,15 +45,6 @@
 					value="${member.mname}" />
 			</div>
 		</div>
-
-		<div class="form-group">
-			<div class="input-group">
-				<span class="input-group-addon"> <span
-					class="glyphicon glyphicon-user"></span>
-				</span> <input type="text" class="form-control" placeholder="아이디"
-					name="mid" value="${member.mid}" disabled />
-			</div>
-		</div>
 		
 		<div class="form-group">
 			<div class="input-group">
@@ -79,14 +70,6 @@
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="text" class="form-control" placeholder="주소"
 					name="maddress" value="${member.maddress}" />
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="input-group">
-				<span class="input-group-addon"> <span
-					class="glyphicon glyphicon-lock"></span>
-				</span> <input type="date" class="form-control" placeholder="날짜"
-					name="mdate" value="${member.mdate}" disabled />
 			</div>
 		</div>
 		
