@@ -42,7 +42,6 @@ public class CoapResource06 extends CoapResource {
   }
 
   @Override
-
   public void handleGET(CoapExchange exchange) {
     exchange.respond(text);
   }

@@ -15,12 +15,19 @@
 			<!-- 하나의 세션에서만 실행되는 select문. 6/12 필기 참조! -->
 			select board_bno_seq.currval from dual
 		</selectKey>
+		<if test="boriginalfilename != null">
 		insert into board
 		values
 		(board_bno_seq.nextval, #{btitle}, #{bcontent},
 		#{bwriter}, sysdate, #{bpassword}, 0,
 		#{boriginalfilename},
 		#{bsavedfilename}, #{bfilecontent})
+		</if>
+		<if test="boriginalfilename == null">
+		insert into board (bno, btitle, bcontent, bwriter, bdate, bpassword, bhitcount)
+		values(board_bno_seq.nextval, #{btitle}, #{bcontent},
+		#{bwriter}, sysdate, #{bpassword}, 0)
+		</if>
 	</insert>
       <!-- 컬럼명과 DTO객체 필드이름이 다를 경우!
 	<resultMap id="selectAllResultMap" type="com.mycompany.myapp.dto.Exam12Board">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- mapper xml파일이라고 부름 -->
 <!-- mapper: mapper태그로 루트태그를 작성해야한다. 에디터는 마지막에 명시된 주소에서 파일을 다운로드함.이건 없어도 
 	되나 정확한 인식을 위해 써줌. -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
@@ -25,7 +25,7 @@
 	select count(*) from member 
 	</select>
 	
-	<select id="selectByMid" parameterType="String" resultType="com.mycompany.myapp.dto.Exam12Member">
+	<select id="selectByMid" parameterType="string" resultType="com.mycompany.myapp.dto.Exam12Member">
 	select * from member where mid=#{mid}
 	</select>
 	
@@ -35,7 +35,7 @@
 	<if test="moriginalfilename == null">update member set mname=#{mname}, mpassword=#{mpassword}, mdate=sysdate, mage=#{mage}, maddress=#{maddress}, memail=#{memail}, mtel=#{mtel} where mid=#{mid} </if>
 	</update>
 	
-	<delete id="delete" parameterType="String">
+	<delete id="delete" parameterType="string">
 	delete from member where mid=#{mid}
 	</delete>
 </mapper>

@@ -112,6 +112,18 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.8.10</version>
 		</dependency>
+		<!-- JUnit 라이브러리 설정 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.3.8.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 	<repositories>
@@ -143,6 +155,11 @@
 					<!-- WebContent에 있는 내용을 압축시키겠다는 의미 -->
 					<warSourceDirectory>WebContent</warSourceDirectory>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.20</version>
 			</plugin>
 		</plugins>
 	</build>
