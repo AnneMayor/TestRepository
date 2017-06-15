@@ -23,7 +23,6 @@ public class RGBLedDigital {
     redPin.setShutdownOptions(true, PinState.LOW);
     greenPin.setShutdownOptions(true, PinState.LOW);
     bluePin.setShutdownOptions(true, PinState.LOW);
-
   }
 
   public static void main(String[] args) throws InterruptedException {

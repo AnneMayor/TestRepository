@@ -9,7 +9,7 @@ import hardware.converter.PCF8591;
 import hardware.led.RGBLedPWM;
 import hardware.sensor.GasSensor;
 import org.eclipse.californium.core.CoapResource;
-import org.eclipse.californium.core.server.resources.CoapExchange;
+import org.eclipse.californium.core.server.resources.CoapExchange  ;
 
 public class CoapResource06 extends CoapResource {
 
