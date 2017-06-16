@@ -30,7 +30,7 @@ public class LaserEmitter {
         laserPin.high();
         status = "off";
     }
-    iv 
+    
     public String getStatus() {
         return status;
     }
