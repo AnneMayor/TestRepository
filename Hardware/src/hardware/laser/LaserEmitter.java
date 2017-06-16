@@ -30,13 +30,13 @@ public class LaserEmitter {
         laserPin.high();
         status = "off";
     }
-    
+    iv 
     public String getStatus() {
         return status;
     }
 
     public static void main(String[] args) throws InterruptedException {
-        LaserEmitter laserEmitter = new LaserEmitter(RaspiPin.GPIO_00);
+        LaserEmitter laserEmitter = new LaserEmitter(RaspiPin.GPIO_25);
         for (int i = 0; i < 5; i++) {
             laserEmitter.shot();
             Thread.sleep(3000);
