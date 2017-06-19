@@ -44,11 +44,19 @@ public class SG90ServoPCA9685StepDuration {
     PCA9685 pca9685 = PCA9685.getInstance();
     SG90ServoPCA9685StepDuration servo = new SG90ServoPCA9685StepDuration(pca9685, PCA9685.PWM_11);
     SG90ServoPCA9685StepDuration servo1 = new SG90ServoPCA9685StepDuration(pca9685, PCA9685.PWM_14);
+    SG90ServoPCA9685StepDuration servo2 = new SG90ServoPCA9685StepDuration(pca9685, PCA9685.PWM_15);
+    SG90ServoPCA9685StepDuration servo3 = new SG90ServoPCA9685StepDuration(pca9685, PCA9685.PWM_00);
     
-//    servo.setAngle(90);
+//    servo.setAngle(0);
 //    Thread.sleep(1000);
 //    
-    servo1.setAngle(0);
+//    servo1.setAngle(90);
+//    Thread.sleep(1000);
+//    
+//    servo2.setAngle(90);
+//    Thread.sleep(1000);
+//    
+    servo3.setAngle(0);
     Thread.sleep(1000);
     
 //    for (int i = 10; i <= 170; i+=10) {

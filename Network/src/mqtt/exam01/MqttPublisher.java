@@ -28,7 +28,7 @@ public class MqttPublisher {
   };
 
   public MqttPublisher() throws MqttException {
-    // Mqtt Client 생성
+    // Mqtt Client 생 성(broker 아이피주소로 연결)
     mqttClient = new MqttClient("tcp://192.168.3.128:1883", MqttClient.generateClientId());
     // 통신 결과에 따라 실행할 콜백 객체 생성
     mqttClient.setCallback(mqttCallback);
