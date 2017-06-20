@@ -1,0 +1,3 @@
+sudo usermod -aG i2c tomcat8
+sudo usermod -aG gpio tomcat8
+sudo usermod -aG kmem tomcat8
