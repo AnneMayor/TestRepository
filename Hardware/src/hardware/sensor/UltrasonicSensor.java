@@ -27,6 +27,7 @@ public class UltrasonicSensor {
 
   }
 
+  // synchronized의 의미: 한 번에 하나의 스레드만 사용한다.(멀티스레드 환경에서 하나의 스레드만 사용하기위함.)
   public int getDistance() {
     // 초음파 발신 시간 변수와 수신 시간 변수 선언
     double start = 0;
