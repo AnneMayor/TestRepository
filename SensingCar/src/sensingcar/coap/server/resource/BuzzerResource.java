@@ -2,7 +2,6 @@ package sensingcar.coap.server.resource;
 
 import com.pi4j.io.gpio.RaspiPin;
 import hardware.buzzer.ActiveBuzzer;
-import static java.lang.Compiler.command;
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.server.resources.CoapExchange;
 import org.json.JSONObject;
@@ -11,12 +10,16 @@ import org.slf4j.LoggerFactory;
 
 public class BuzzerResource extends CoapResource {
 
-   private static final Logger LOGGER = LoggerFactory.getLogger(BuzzerResource.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(BuzzerResource.class);
   private ActiveBuzzer buzzer;
   private String currStatus;
-
+  private static BuzzerResource instance;
+  
+  
   public BuzzerResource() throws Exception {
     super("buzzer");
+    // 현재 만들어진 객체를 instance에 저장하면 됨.
+    instance = this;
     buzzer = new ActiveBuzzer(RaspiPin.GPIO_24);
     off();
   }
@@ -50,7 +53,7 @@ public class BuzzerResource extends CoapResource {
       String rsjson = rsjsonObject.toString();
       exchange.respond(rsjson);
     } catch (Exception e) {
-     LOGGER.info(e.toString());
+      LOGGER.info(e.toString());
       JSONObject rsjsonObject = new JSONObject();
       rsjsonObject.put("result", "fail");
       String rsjson = rsjsonObject.toString();
@@ -58,13 +61,17 @@ public class BuzzerResource extends CoapResource {
     }
   }
 
-  private void on() {
+  public void on() {
     buzzer.on();
     currStatus = "on";
   }
 
-  private void off() {
+  public void off() {
     buzzer.off();
     currStatus = "off";
+  }
+  
+  public static BuzzerResource getInstance() {
+    return instance;
   }
 }

@@ -7,8 +7,10 @@ import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class UltrasonicSensor {
+public class UltrasonicSensor2 {
 
   private GpioPinDigitalOutput trigger;
   private GpioPinDigitalInput echo;
@@ -17,7 +19,7 @@ public class UltrasonicSensor {
   private boolean again;
   private int count;
 
-  public UltrasonicSensor(Pin triggerNo, Pin echoNo) {
+  public UltrasonicSensor2(Pin triggerNo, Pin echoNo) {
     GpioController gpioController = GpioFactory.getInstance();
 
     trigger = gpioController.provisionDigitalOutputPin(triggerNo);
@@ -32,6 +34,14 @@ public class UltrasonicSensor {
     // 초음파 발신 시간 변수와 수신 시간 변수 선언
     double start = 0;
     double end = 0;
+    
+    //초기화
+    trigger.low();
+    try {
+      Thread.sleep(0, 5000);
+    } catch (InterruptedException ex) {
+    }
+    
     // 초음파를 10마이크로초동안 발생
     trigger.high();
     try {
@@ -62,7 +72,7 @@ public class UltrasonicSensor {
     double second = (end - start) / 1000000000 / 2;
 
     // 거리(cm)
-    int distance = (int) (second * 34000);
+    int distance = (int) (second * (33130 + 60.6*25));
     // 100이상 튀는 값이 있을 경우 다시 측정
     if(again==false && Math.abs(previousDistance-distance) > 100) {
       again = true;
@@ -83,7 +93,7 @@ public class UltrasonicSensor {
   }
 
   public static void main(String... args) throws InterruptedException {
-    UltrasonicSensor test = new UltrasonicSensor(RaspiPin.GPIO_28, RaspiPin.GPIO_29);
+    UltrasonicSensor2 test = new UltrasonicSensor2(RaspiPin.GPIO_28, RaspiPin.GPIO_29);
     while (true) {
       int distance = test.getDistance();
       System.out.println("거리(cm): " + distance);
