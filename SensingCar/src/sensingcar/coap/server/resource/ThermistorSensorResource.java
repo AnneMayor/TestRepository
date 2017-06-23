@@ -33,7 +33,7 @@ public class ThermistorSensorResource extends CoapResource {
           try {
             currTemperature = thermistor.getValue();
             changed();
-            Thread.sleep(500);
+            Thread.sleep(1000);
           } catch (Exception e) {
             LOGGER.info(e.toString());
           }

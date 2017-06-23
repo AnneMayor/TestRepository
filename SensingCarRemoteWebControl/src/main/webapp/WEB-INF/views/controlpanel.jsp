@@ -4,7 +4,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>WebApplication</title>
+<title>SensingCar Control Panel</title>
 <link
 	href="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -25,10 +25,26 @@
 	}
 }
 </style>
-		<script src="<%=application.getContextPath()%>/resources/js/camera.js"></script>
-		<script src="<%=application.getContextPath()%>/resources/js/rgbled.js"></script>
-		<script src="<%=application.getContextPath()%>/resources/js/laseremitter.js"></script>
-		<script src="<%=application.getContextPath()%>/resources/js/buzzer.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/camera.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/rgbled.js"></script>
+<script
+	src="<%=application.getContextPath()%>/resources/js/laseremitter.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/buzzer.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/ultrasonicsensor.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/lcd.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/fronttire.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/backtire.js"></script>
+<script
+	src="<%=application.getContextPath()%>/resources/js/thermistorsensorchart.js"></script>
+	<script
+	src="<%=application.getContextPath()%>/resources/js/ultrasonicsensorchart.js"></script>
+	<script
+	src="<%=application.getContextPath()%>/resources/js/trackingsensorchart.js"></script>
+	<script
+	src="<%=application.getContextPath()%>/resources/js/photoresistorchart.js"></script>
+	<script
+	src="<%=application.getContextPath()%>/resources/js/gassensorchart.js"></script>
+	
 </head>
 
 <body style="background-color: black;">
@@ -76,11 +92,14 @@
 							<br />
 							<div style="text-align: center;">
 								좌우<br />
-								<button id="btnLeftright180" type="button" class="btn btn-danger"
+								<button id="btnLeftright180" type="button"
+									class="btn btn-danger"
 									onclick="camera('change','180', '${updown}')">&lt;&lt;</button>
-								<button id="btnLeftright135" type="button" class="btn btn-warning"
+								<button id="btnLeftright135" type="button"
+									class="btn btn-warning"
 									onclick="camera('change','135', '${updown}')">&lt;</button>
-								<button id="btnLeftright90" type="button" class="btn btn-default"
+								<button id="btnLeftright90" type="button"
+									class="btn btn-default"
 									onclick="camera('change', '90', '${updown}')">정면</button>
 								<button id="btnLeftright45" type="button" class="btn btn-info"
 									onclick="camera('change','45', '${updown}')">&gt;</button>
@@ -164,16 +183,16 @@
 								style="text-align: center; font-size: 18px; font-style: italic; font-weight: bold;">UltrasonicSensor
 								제어</div>
 							<div style="text-align: center">
-								현재 상태: <span id="ultrasonicSensorStatus"></span>
+								현재 상태: <span id="ultrasonicsensorStatus">angle=${ultrasonicsensorAngle}; distance=${ultrasonicsensorDistance}</span>
 							</div>
 							<br />
 							<div style="text-align: center;">
 								<button type="button" class="btn btn-danger"
-									onclick="ultrasonicSensor('changeAngle', '180')">&lt;&lt;</button>
+									onclick="ultrasonicsensor('change', '180')">&lt;&lt;</button>
 								<button type="button" class="btn btn-default"
-									onclick="ultrasonicSensor('changeAngle', '90')">정면</button>
+									onclick="ultrasonicsensor('change', '90')">정면</button>
 								<button type="button" class="btn btn-primary"
-									onclick="ultrasonicSensor('changeAngle', '0')">&gt;&gt;</button>
+									onclick="ultrasonicsensor('change', '0')">&gt;&gt;</button>
 							</div>
 						</div>
 					</div>
@@ -187,7 +206,7 @@
 								style="text-align: center; font-size: 18px; font-style: italic; font-weight: bold;">LCD
 								장치 제어</div>
 							<div style="text-align: center">
-								현재 상태: <span id="lcdStatus"></span>
+								현재 상태: <span id="lcdStatus"><br/>line0: ${lcdline0}<br/>line1: ${lcdline1}</span>
 							</div>
 							<br />
 							<div style="padding-left: 20px;">
@@ -200,7 +219,7 @@
 											value="IoT Sensing Car" style="color: black; width: 120px;" />
 										</td>
 										<td style="width: 30%">
-											<button type="button" onclick="lcd('changeText')"
+											<button type="button" onclick="lcd('change')"
 												class="btn btn-primary">보내기</button>
 										</td>
 									</tr>
@@ -215,16 +234,16 @@
 								style="text-align: center; font-size: 18px; font-style: italic; font-weight: bold;">FrontTire
 								장치 제어</div>
 							<div style="text-align: center">
-								현재 상태: <span id="fronttireStatus"></span>
+								현재 상태: <span id="fronttireStatus">${frontAngle}</span>
 							</div>
 							<br />
 							<div style="text-align: center;">
 								<button type="button" class="btn btn-danger"
-									onclick="fronttire('changeAngle', '65')"><<</button>
+									onclick="fronttire('change', '65')"><<</button>
 								<button type="button" class="btn btn-default"
-									onclick="fronttire('changeAngle', '95')">정면</button>
+									onclick="fronttire('change', '95')">정면</button>
 								<button type="button" class="btn btn-primary"
-									onclick="fronttire('changeAngle', '125')">>></button>
+									onclick="fronttire('change', '125')">>></button>
 							</div>
 						</div>
 					</div>
@@ -235,38 +254,38 @@
 								style="text-align: center; font-size: 18px; font-style: italic; font-weight: bold;">BackTire
 								장치 제어</div>
 							<div style="text-align: center">
-								현재 상태: <span id="backtireStatus"></span>
+								현재 상태: <span id="backtireStatus">direction: ${direction}; speed: ${speed} </span>
 							</div>
 							<br />
 							<div style="text-align: center;">
-								<button type="button" class="btn btn-warning"
-									onclick="backtire('changeDirection', 'forward')"
+								<button id="btnBackTireForward" type="button" class="btn btn-warning"
+									onclick="backtire('change', 'forward', '${speed}')"
 									style="margin-bottom: 5px;">전진</button>
-								<button type="button" class="btn btn-info"
-									onclick="backtire('changeDirection', 'backward')"
+								<button id="btnBackTireBackward" type="button" class="btn btn-info"
+									onclick="backtire('change', 'backward','${speed}')"
 									style="margin-bottom: 5px;">후진</button>
 								<br />
-								<button onclick="backtire('changeSpeedStep', '0')"
+								<button id="btnBackTire0" onclick="backtire('change', '${direction}' ,'0')"
 									style="color: black;">0</button>
-								<button onclick="backtire('changeSpeedStep', '1')"
+								<button id="btnBackTire1" onclick="backtire('change', '${direction}','500')"
 									style="color: black;">1</button>
-								<button onclick="backtire('changeSpeedStep', '2')"
+								<button id="btnBackTire2" onclick="backtire('change', '${direction}','700')"
 									style="color: black;">2</button>
-								<button onclick="backtire('changeSpeedStep', '3')"
+								<button id="btnBackTire3" onclick="backtire('change', '${direction}','1000')"
 									style="color: black;">3</button>
-								<button onclick="backtire('changeSpeedStep', '4')"
+								<button id="btnBackTire4" onclick="backtire('change', '${direction}','1300')"
 									style="color: black;">4</button>
-								<button onclick="backtire('changeSpeedStep', '5')"
+								<button id="btnBackTire5" onclick="backtire('change', '${direction}','1600')"
 									style="color: black;">5</button>
-								<button onclick="backtire('changeSpeedStep', '6')"
+								<button id="btnBackTire6" onclick="backtire('change', '${direction}','1900')"
 									style="color: black;">6</button>
-								<button onclick="backtire('changeSpeedStep', '7')"
+								<button id="btnBackTire7" onclick="backtire('change', '${direction}','2100')"
 									style="color: black;">7</button>
-								<button onclick="backtire('changeSpeedStep', '8')"
+								<button id="btnBackTire8" onclick="backtire('change', '${direction}','2400')"
 									style="color: black;">8</button>
-								<button onclick="backtire('changeSpeedStep', '9')"
+								<button id="btnBackTire9" onclick="backtire('change', '${direction}','2700')"
 									style="color: black;">9</button>
-								<button onclick="backtire('changeSpeedStep', '10')"
+								<button id="btnBackTire10" onclick="backtire('change', '${direction}','3000')"
 									style="color: black;">10</button>
 							</div>
 						</div>
