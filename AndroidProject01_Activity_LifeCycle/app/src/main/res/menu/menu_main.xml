@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- @+id: 여기서 resource에 아이디 하나 넣겠다고 선언(+가 없으면 아이디를 참조하겠다는 의미)-->
+    <!-- @android:drawable/ic_lock_lock: android 안의 아이콘 이미지를 사용하겠다는 코드(@drawable이렇게 선언하면 이건 res 파일 아래의 drawable폴더 안의 파일을 사용하겠다는 의미-->
+    <item
+        android:id="@+id/action_full_activity"
+        android:icon="?android:attr/textSelectHandle"
+        android:title="FullActivity"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_dialog_activity1"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:title="DialogActivity"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_dialog_activity2"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:title="DialogActivity"
+        app:showAsAction="always" />
+</menu>
