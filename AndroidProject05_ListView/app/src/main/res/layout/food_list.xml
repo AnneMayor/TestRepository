@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- android:orientation="vertical" 이런 식으로 지정해야 에러가 나지 않음.-->
+<!-- android:height 요것도 있어야 함!-->
+<!-- ListView는 스크롤 기능이 자동탑재되어있음.-->
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</ListView>

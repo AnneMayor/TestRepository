@@ -17,10 +17,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         linearLayouyTop = (LinearLayout) findViewById(R.id.linearLayoutTop);
-        frameLayout = (FrameLayout) findViewById(R.id.framelayout);
+        frameLayout = (FrameLayout) findViewById(R.id.frameLayout);
     }
 
     public void handleRadioButton1(View v) {
+        // R클래스에서 부여한 번호를 가지고 photo1.jpg 를 대신할 수 있으나 이건 안스에선 에러가 남. 이클립스에선 가능하여 주로 게임개발에 자주 쓰임.
         linearLayouyTop.setBackgroundResource(R.drawable.photo1);
     }
     public void handleRadioButton2(View v) {
