@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!-- R은 리소스 내부에서 문제가 생기면 R이란 클래스는 만들어지지않음. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+    
+    <style name="radioButton1Style" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/radiobutton1_icon</item>
+    </style>
+
+    <style name="radioButton2Style" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/radiobutton2_icon</item>
+    </style>
+
+    <style name="radioButton3Style" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/radiobutton3_icon</item>
+    </style>
+
+</resources>
