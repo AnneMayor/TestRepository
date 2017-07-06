@@ -11,31 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.HomeActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.UIActivity"
-            android:parentActivityName=".activity.HomeActivity">
 
-            <!-- 안드로이드 4.0 이전 버전을 위한 설정 -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.HomeActivity" />
-        </activity>
-
-        <receiver
-            android:name=".receiver.SelfBroadcastReceiver"
+        <service
+            android:name=".service.BackgroundService"
             android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.mycompany.myapplication.SelfBroadcaset" />
-            </intent-filter>
-        </receiver>
+            android:exported="true"></service>
+
         <receiver
             android:name=".receiver.BootCompletedReceiver"
             android:enabled="true"
