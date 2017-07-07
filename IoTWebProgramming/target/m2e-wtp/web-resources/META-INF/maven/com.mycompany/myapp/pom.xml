@@ -147,6 +147,12 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3.2</version>
 		</dependency>
+		<!-- JSON(org.json) -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20170516</version>
+		</dependency>
 		<!-- Oracle JDBC Driver -->
 		<dependency>
 			<groupId>com.oracle</groupId>
