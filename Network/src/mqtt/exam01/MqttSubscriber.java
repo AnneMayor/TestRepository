@@ -28,7 +28,7 @@ public class MqttSubscriber {
 
   public MqttSubscriber() throws MqttException {
     // Mqtt Client 생성(여기서 실제로 tcp 연결도 된 상태임)
-    mqttClient = new MqttClient("tcp://192.168.3.11:1883", MqttClient.generateClientId());
+    mqttClient = new MqttClient("tcp://192.168.3.128:1883", MqttClient.generateClientId());
     // 통신 결과에 따라 실행할 콜백 객체 생성
     mqttClient.setCallback(mqttCallback);
     mqttClient.connect();
